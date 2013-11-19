@@ -1,0 +1,13 @@
+<br /><br />
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+    </tr>
+    <?php foreach ($this->secciones as $seccion) : ?>
+    <tr>
+        <td><?php echo $seccion->getNombre() ?></td>
+        <td><a href="<?php echo $this->url(array('module'=>'administracion',
+            'controller'=>'secciones','action'=>'editarseccion','id'=>$seccion->getId()))?>"><i class="icon-edit"></i></a></td>
+    </tr>
+    <?php endforeach; ?>
+</table>

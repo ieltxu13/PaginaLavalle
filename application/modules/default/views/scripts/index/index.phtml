@@ -1,0 +1,183 @@
+<div class="container-fluid"><!-- CONTENEDOR DE FILAS -->
+    <div id="myCarousel" class="carousel slide"> <!--IMAGENES-->
+        <div class="carousel-inner">
+            <?php foreach ($this->noticiasCarrousel as $index => $noticiaCarrousel) : ?>
+                <?php if ($index == 0): ?>
+                    <div class="item active">
+                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiaCarrousel->getId())) ?>">
+                            <img src="<?php echo $this->url(array('module' => 'default', 'controller' => 'recursosn', 'action' => $noticiaCarrousel->getArchivoGrande()->getUrl())) ?>" alt="" class="imagenes-carousel">
+                            <div class="carousel-caption imagenes-texto">
+                                <h1><?php echo $noticiaCarrousel->getCopete() ?></h1>
+                            </div>
+                        </a>
+                    </div>
+                <?php else : ?>
+                    <div class="item">
+                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiaCarrousel->getId())) ?>">
+                            <img src="<?php echo $this->url(array('module' => 'default', 'controller' => 'recursosn', 'action' => $noticiaCarrousel->getArchivoGrande()->getUrl())) ?>" alt="" class="imagenes-carousel">
+                            <div class="carousel-caption imagenes-texto">
+                                <h1><?php echo $noticiaCarrousel->getCopete() ?></h1>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                endif;
+            endforeach;
+            ?>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel --><!--FIN IMAGENES-->
+    <div class="row-fluid"><!-- FILA VIDEOS Y ALGO MAS-->
+        <div class="span6"><!-- FILA VIDEOS -->
+            <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab_3.png' ?>"/><!-- DIVISOR -->
+            <h2>Videos</h2>
+            <div id="videoCarousel" class="carousel slide" data-interval="">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <iframe width="100%" height="300" src="http://www.youtube.com/embed/N0oODdbeXc8?rel=0" frameborder="0" allowfullscreen="" id="video"></iframe>
+                        <div class="container">
+                            <div class="carousel-caption videos">
+                                <h1>Juanita Vera</h1>
+                                <p class="lead">La cantante nos brinda este testimonio imperdible</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/3oObGs4_PM8?rel=0&feature=player_embedded" frameborder="0" allowfullscreen="" id="video"></iframe>
+                        <div class="container">
+                            <div class="carousel-caption videos">
+                                <h1>Nuestras voces refuerzan derechos</h1>
+                                <p class="lead">Niños, niñas y adolescentes de distintos barrios, están trabajando con spots, cuentos, canciones y otros, reforzando temas como Derechos Humanos, Habilidades y Valores sociales.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <iframe width="100%" height="300" src="http://www.youtube.com/embed/g9vEjEn_im4?rel=0&feature=player_embedded" frameborder="0" allowfullscreen="" id="video"></iframe>
+                        <div class="container">
+                            <div class="carousel-caption videos">
+                                <h1>Homenaje a los educadores de Lavalle</h1>
+                                <p class="lead">Lavalle será escenario de la película de Juan Palomino</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#videoCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="right carousel-control" href="#videoCarousel" data-slide="next">&rsaquo;</a>
+            </div><!-- /.carousel -->
+        </div><!-- FIN FILA VIDEOS -->
+        <div class="span6"> <!-- FILA ALGO MAS -->
+            <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab_3.png' ?>"/><!-- DIVISOR -->
+            <h2>Trámites</h2>
+            <div class="aficheVentanilla">
+                <div class="aficheVentanillaOculto">
+                    <div class="aficheVentanillaOculto">
+                        <a href="<?php
+                        echo $this->url(array('module' => 'default',
+                            'controller' => 'secciones',
+                            'action' => 'ver',
+                            'id' => 14))
+                        ?>"><img src="<?php echo $this->baseUrl() . '/img/tramites.png' ?>" style="display: block; margin: 50 auto;"></a>
+                    </div>
+                </div>
+                <div class="aficheVentanillaImagen">
+                    <img src='<?php echo $this->baseUrl() . '/img/AFICHEchico.jpg' ?>'/>
+                </div>
+            </div>
+            <h2>Interés</h2>
+            <a class='btn' href='<?php echo $this->baseUrl() . '/img/HORARIOS40.pdf' ?>
+               ' target="_blank" onClick="window.open(this.href, this.target, 'width=700,height=600');
+                       return false;" role="button" class="btn" data-toggle="modal" >
+                <img src='<?php echo $this->baseUrl() . '/img/colectivos.png' ?>'>Horarios ruta 40</a>
+            <a class='btn' href='<?php echo $this->baseUrl() . '/img/HORARIOS24.pdf' ?>
+               ' target="_blank" onClick="window.open(this.href, this.target, 'width=700,height=600');
+                       return false;" role="button" class="btn" data-toggle="modal" >
+                <img src='<?php echo $this->baseUrl() . '/img/colectivos.png' ?>'>Horarios ruta 24</a>
+        </div><!-- FILA ALGO MAS -->
+    </div><!--FIN VIDEOS Y ALGO MAS-->
+<?php if (isset($this->encuestaActiva)): ?>
+    <?php if (!isset($_COOKIE[$this->encuestaActiva])): ?>
+    <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab.png' ?>"/><!-- DIVISOR -->
+    <div class='row-fluid widgetEncuesta' style="height:238px"><!--ENCUESTA-->
+                <div class="pregunta span12">
+                    <div class="row-fluid">
+                    <h1><?php echo $this->encuesta->getPregunta() ?></h1>
+                    <div class="span4">
+                    <a id="encuestaSi" encuesta="<?php echo $this->encuesta->getId() ?>" class="btn btn-success btn-large btn-block">Si</a> 
+                    </div>
+                    <div class="span4">
+                    <a id="encuestaNo" encuesta="<?php echo $this->encuesta->getId() ?>" class="btn btn-danger btn-large btn-block">No</a>
+                    </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="resultados">
+                </div>
+    </div><!--FIN ENCUESTA-->
+    <?php endif;
+endif; ?>
+    <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab.png' ?>"/><!-- DIVISOR -->
+    <h2>Noticias</h2>
+    <div class='row-fluid'><!--NOTICIAS FILA 1-->
+<?php foreach ($this->noticiasPrincipales as $index => $noticiap): ?>
+                        <?php if ($index == 0 || $index == 3) : ?>
+                <div class="row-fluid">    
+                    <div class="span4 noticiasPrincipales">
+                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+                            <?php if ($noticiap->getArchivoPrincipal()) : ?>
+                                <img height="300" width="300" src="<?php
+                                     echo $this->url(array('module' => 'default',
+                                         'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                     ?>">
+        <?php endif; ?>
+                            <h5><?php echo $noticiap->getTitulo() ?></h5>
+                            <p><?php echo $noticiap->getCopete() ?></p>
+
+                        </a>
+                    </div>
+                        <?php elseif ($index == 2 || $index == 5) : ?>   
+                    <div class="span4 noticiasPrincipales">
+                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+                            <?php if ($noticiap->getArchivoPrincipal()) : ?>
+                                <img height="300" width="300" src="<?php
+                                     echo $this->url(array('module' => 'default',
+                                         'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                     ?>">
+        <?php endif; ?>
+                            <h5><?php echo $noticiap->getTitulo() ?></h5>
+                            <p><?php echo $noticiap->getCopete() ?></p>
+
+                        </a>
+                    </div>
+                </div>
+                    <?php else: ?>
+                <div class="span4 noticiasPrincipales">
+                    <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+
+                        <?php if ($noticiap->getArchivoPrincipal()) : ?>
+                            <img height="300" width="300" src="<?php
+                                 echo $this->url(array('module' => 'default',
+                                     'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                 ?>">
+        <?php endif; ?>
+                        <h5><?php echo $noticiap->getTitulo() ?></h5>
+                        <p><?php echo $noticiap->getCopete() ?></p>
+
+                    </a>
+                </div>
+    <?php endif; ?>
+<?php endforeach; ?>
+
+    </div><!--FIN NOTICIAS FILA 1-->
+
+    <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab_2.png' ?>"/><!-- DIVISOR -->
+    <!--BANNER (solo visible en desktop)-->
+    <div class="banner-footer hidden-phone row-fluid"><embed id="eplb9b4e0b48ac0a875f_embed" name="eplb9b4e0b48ac0a875f" src="http://www.entrelineaslavalle.com.ar//banner//bannernov2012.swf" quality="autohigh" loop="true" allowscriptaccess="always" allowfullscreen="true" flashvars="clickTag=http%3A//ads.e-planning.net/ei/3/4cfd/HOME/INTERNOTA11%3Frnd%3D0.9425163103733212%26pb%3D9b4e0b48ac0a875f%26fi%3D9a75f13f3aa1096d" wmode="opaque" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100" border="0">
+    </div><!--FIN DIV BANNER-->
+</div><!--FIN CONTENEDOR DE FILAS-->
+<script>
+                   $('.nav').children().first().addClass('active');
+                   $('#myCarousel').carousel({
+                       interval: 5000
+                   });
+</script>

@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    
+        <?php $i = 1; foreach($this->noticias as $key => $noticia):?>
+        <?php if ($i % 2 == 0): ?>
+            <div class="span6">
+                <a href="<?php echo $this->url(array('module'=>'default',
+    'controller'=>'noticias','action'=>'noticia', 'id'=>$noticia->getId()))?>">
+                    <?php if($noticia->getArchivoPrincipal()): ?>
+                    <img height="150" width="150" src="<?php echo $this->url(array('module'=>'default',
+    'controller'=>'recursosn','action'=>$noticia->getArchivoPrincipal()->getUrl())) ?>" style="float:left">
+                    <?php endif; ?>        
+                    <h6><?php echo $noticia->getFecha() ?></h6>
+                    <h6><?php echo $noticia->getTitulo()?></h6></a>
+            </div>
+            </div>
+        <?php else: ?>
+            <div class ="row-fluid listadoNoticias">
+                <div class="span6">
+                <a href="<?php echo $this->url(array('module'=>'default',
+    'controller'=>'noticias','action'=>'noticia', 'id'=>$noticia->getId()))?>">
+                    <?php if($noticia->getArchivoPrincipal()): ?>
+                    <img height="150" width="150" src="<?php echo $this->url(array('module'=>'default',
+    'controller'=>'recursosn','action'=>$noticia->getArchivoPrincipal()->getUrl())) ?>" style="float:left">
+                    <?php endif; ?> 
+                    <h6><?php echo $noticia->getFecha() ?></h6>
+                    <h6><?php echo $noticia->getTitulo()?></h6></a>
+            </div>
+    <?php if ($i == count($this->noticias)): ?>
+            </div>
+       
+        
+        <?php endif;?>
+        
+        <?php endif;?>
+
+<?php $i++; endforeach; ?>
+    </div>
+<br>
+<br>
+<?php
+echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml')
+?>
+<script>
+    activarLinkMenu('Comunicación y Prensa')
+</script>  

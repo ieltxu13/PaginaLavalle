@@ -1,0 +1,29 @@
+
+
+<?php echo $this->formUpload ?>
+<?php if(!$this->cambiandoImagenGrande) : ?>
+<?php if ($this->noticia->getArchivoPrincipal()) : ?>
+    
+<hr>
+<p>Actualmente la imagen de la noticia es la siguiente, si elige otra la actual se eliminará y reemplazará</p>
+
+<img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursosn','action'=>$this->noticia->getArchivoPrincipal()->getUrl()))?>">
+<?php else: ?>
+
+<h2>Actualmente no hay ninguna imagen asignada a esta noticia</h2>
+    
+<?php endif; ?>
+<?php else: ?>
+<?php if ($this->noticia->getArchivoGrande()) : ?>
+    
+<hr>
+<p>Actualmente la <strong>grande</strong> imagen de la noticia es la siguiente, si elige otra la actual se eliminará y reemplazará</p>
+
+<img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursosn','action'=>$this->noticia->getArchivoGrande()->getUrl()))?>">
+
+<?php else: ?>
+
+<h2>Actualmente no hay ninguna imagen grande asignada a esta noticia</h2>
+    
+<?php endif; ?>
+<?php endif; ?>

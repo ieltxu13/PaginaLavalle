@@ -1,0 +1,28 @@
+<br /><br />
+<br /><br />
+<div class="container-fluid">
+
+<?php foreach ($this->imagenes as $imagen) : ?>
+    <?php if (!$this->subseccion->getImagenes()->contains($imagen)) : ?>
+    <div class="row-fluid">
+        <div class="span3">
+            <img src="<?php echo $this->url(array('module'=>'default',
+    'controller'=>'recursos','action'=>$imagen->getUrl()))?>" heigth="150px" width="150px" class="img-polaroid">
+        </div>
+        <div class="span3"></div>
+        <div class="span3">
+            <h3><?php echo $imagen->getUrl()?></h3>
+            <h5><?php echo $imagen->getDescripcion() ?></h5>
+        </div>
+        <div class="span3">
+            <br>
+                <a class="btn btn-success" href="<?php echo $this->url(array('module'=>'administracion',
+                    'controller'=>'secciones','action'=>'seleccionar','idimagen'=>$imagen->getId()))?>">Seleccionar</a>
+        </div>
+        <div class="span3"></div>
+    </div>
+<?php endif; endforeach; ?>
+</div>
+<?php
+echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml')
+?>

@@ -1,0 +1,22 @@
+<table class='table'>
+    <tr>
+        <th>Fecha</th>
+        <th>Titulo</th>
+        <th>Copete</th>
+        <th></th>
+    </tr>
+    
+        <?php 
+            foreach ($this->noticias as $noticia): ?>
+    <tr>
+        <td><?php echo $noticia->getFecha() ?></td>
+        <td><?php echo $noticia->getTitulo() ?></td>
+        <td><?php echo $noticia->getCopete() ?></td>
+        <td><a href='<?php echo $this->url(array('module' => 'administracion', 'controller'=>'noticias', 'action'=>'ver', 'id'=>$noticia->getId()),null, true)?>'><i class="icon-eye-open"></i></a></td>
+        <td><a href='<?php echo $this->url(array('module' => 'administracion', 'controller'=>'noticias', 'action'=>'editar', 'id'=>$noticia->getId()),null, true)?>'><i class="icon-pencil"></i></a></td>
+        <td><a href='<?php echo $this->url(array('module' => 'administracion', 'controller'=>'noticias', 'action'=>'agregarimagen', 'id'=>$noticia->getId()),null, true)?>' data-toggle="tooltip" title="agregar/cambiar imagen"><i class="icon-picture"></i></a></td>
+        <td><a href='<?php echo $this->url(array('module' => 'administracion', 'controller'=>'noticias', 'action'=>'agregarimagen', 'id'=>$noticia->getId(),'grande'=>true),null, true)?>' data-toggle="tooltip" title="agregar/cambiar imagen/es GRANDE/S"><i class="icon-picture"></i></a></td>
+        </tr>
+          <?php endforeach; ?>
+    
+</table>

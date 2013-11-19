@@ -1,0 +1,30 @@
+<?php
+echo $this->ajaxLink('Primera',
+                     $this->url(array('pagina' => $this->first)),
+                     array('id' => 'Primera',
+                           'complete' => 'mostrarNoticias(response)',
+                           'method' => 'post'),
+                     array('format' => 'json')); ?>
+
+<a href="#" id="anterior" pagina="<?php echo $this->previous; ?>">&lt;  Anterior</a>
+<?php
+
+foreach($this->pagesInRange as $page) {
+
+    echo '<a href="#" id="pagina" pagina="'.$page.'">'.$page.'</a>  |  ';   
+
+}?>
+
+<a href="#" id="siguiente" pagina="<?php echo $this->next; ?>">Siguiente</a>
+
+<?php
+echo $this->ajaxLink('Ultima',
+                     $this->url(array('pagina' => $this->last)),
+                     array('id' => 'Ultima',
+                           'complete' => 'mostrarNoticias(response)',
+                           'method' => 'post'),
+                     array('format' => 'json')); 
+?>
+
+Mostrando p&aacute;gina <div id="paginaActual" style="display: inline;"><?php echo $this->current; ?></div> de <?php echo $this->pageCount; 
+?>

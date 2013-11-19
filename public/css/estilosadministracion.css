@@ -1,0 +1,15 @@
+/* 
+    Document   : estilosadministracion
+    Created on : Jul 8, 2013, 4:29:35 PM
+    Author     : Ieltxu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.imagenes-carousel{
+    margin: 0 auto;
+}
+
+.imagenes-texto{
+    position: static;
+}

@@ -1,0 +1,35 @@
+<div class="well-large">
+    <h1><?php echo $this->encuesta->getTitulo()?></h1>
+</div>
+
+<hr>
+
+<ul class="nav nav-tabs nav-stacked">
+    <li>
+        <a><strong>Titulo: </strong><?php echo $this->encuesta->getPregunta()?></a>
+    </li>
+    <li>
+        <a><strong>Respondieron que si: </strong><?php echo $this->encuesta->getSi()?></a>
+    </li>
+    <li>
+        <a><strong>Respondieron que no: </strong><?php echo $this->encuesta->getNo()?></a>
+    </li>
+    <li>
+        <a><strong>Total: </strong><?php echo $this->encuesta->getTotalRespuestas()?></a>
+    </li>
+    <li>
+        <a><strong>Creado: </strong><?php echo $this->encuesta->getFecha()?></a>
+    </li>
+</ul>
+
+<?php if($this->encuesta->getActiva()) : ?>
+<a class="btn btn-danger" href="<?php echo $this->url(array('module'=>'administracion','controller'=>'encuestas',
+        'action'=>'desactivar','id'=>$this->encuesta->getId()))?>">Desactivar</a>
+<?php else: ?>
+<a class="btn btn-success" href="<?php echo $this->url(array('module'=>'administracion','controller'=>'encuestas',
+        'action'=>'activar','id'=>$this->encuesta->getId()))?>">Activar</a>
+<?php endif; ?>
+
+
+
+

@@ -1,0 +1,40 @@
+<div class="well-large">
+    <h1>Licitaciones</h1>
+</div>
+<?php if (count($this->messages)) : ?>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <ul id="messages">
+            <?php foreach ($this->messages as $message) : ?>
+                <li><?php echo $this->escape($message); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
+<table class="table">
+    <tr>
+        <th>Numero</th>
+        <th>Apertura</th>
+        <th>Descripcion</th>
+        <th>Tipo</th>
+        <th>Ver</th>
+        <th>Activa</th>
+    </tr>
+    <?php foreach ($this->licitaciones as $licitacion) : ?>
+        <tr>
+            <td><?php echo $licitacion->getNumero().'/'.$licitacion->getAnio() ?></td>
+            <td><?php echo $licitacion->getFechaDeApertura().' '.$licitacion->getHoraDeApertura().' hs.' ?></td>
+            <td><?php echo $licitacion->getDescripcion() ?></td>
+            <td><?php echo $licitacion->getTipoDeContratacion()?></td>
+            <td><a href="<?php echo $this->url(array('module' => 'administracion', 'controller' => 'licitaciones',
+        'action' => 'ver', 'id' => $licitacion->getId()))
+        ?>"><i class="icon-eye-open"></i></a></td>
+            <td><?php echo ($licitacion->getActiva() == true) ? 'SI' : 'NO' ?></td>
+        </tr>
+<?php endforeach; ?>
+</table>
+
+<a class="btn btn-success" href="<?php echo $this->url(array('module' => 'administracion', 'controller' => 'licitaciones',
+    'action' => 'nueva'))
+?>">Crear Nueva Licitacion</a>

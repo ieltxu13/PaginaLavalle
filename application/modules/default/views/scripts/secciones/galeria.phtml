@@ -1,0 +1,27 @@
+<br /><br />
+<?php if ($this->imagenes): ?>
+<div id="myCarousel" class="carousel slide"> <!--IMAGENES-->
+    <div class="carousel-inner">
+        <?php foreach ($this->imagenes as $index => $imagen) : ?>
+        <?php if ($index == 0): ?>
+        <div class="item active">
+            <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursosg','action'=>$imagen->getUrl()))?>" alt="" class="imagenes-carousel">
+            <div class="carousel-caption imagenes-texto">
+                <p><?php echo $imagen->getDescripcion()?></p>
+            </div>
+        </div>
+        <?php else : ?>
+        <div class="item">
+            <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursosg','action'=> $imagen->getUrl()))?>" alt="" class="imagenes-carousel">
+            <div class="carousel-caption imagenes-texto">
+                <p><?php echo $imagen->getDescripcion()?></p>
+            </div>
+        </div>
+        <?php endif; endforeach; ?>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel --><!--FIN IMAGENES-->
+<?php else: ?>
+<h1>Aún No Hay Imágenes En la Galería</h1>
+<?php endif; ?>

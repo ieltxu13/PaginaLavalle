@@ -1,0 +1,43 @@
+<div class="well">
+    <h1>Mensajes</h1>
+</div>
+<?php if ($this->mensajes != null) :?>
+<table class="table">
+    <tr>
+        <th>De</th>
+        <th>Asunto</th>
+        <th>Fecha</th>
+    </tr>
+    <?php foreach ($this->mensajes as $mensaje) : ?>
+    <?php if ($mensaje->getLeido()) : ?>
+    <tr>
+        <td><?php echo $mensaje->getDe() ?></td>
+        <td><a href="<?php echo $this->url(array('module' => 'administracion',
+                                                    'controller' => 'mensajes',
+                                                    'action' => 'leer',
+                                                    'id' => $mensaje->getId()))?>"><?php echo $mensaje->getAsunto() ?></td>
+        <td><?php echo $mensaje->getFecha() ?></td>
+    </tr>
+    <?php else : ?>
+    <tr>
+        <td><b><?php echo $mensaje->getDe() ?></b></td>
+        <td><b><a href="<?php echo $this->url(array('module' => 'administracion',
+                                                    'controller' => 'mensajes',
+                                                    'action' => 'leer',
+                                                    'id' => $mensaje->getId()))?>"><?php echo $mensaje->getAsunto() ?></a></b></td>
+        <td><b><?php echo $mensaje->getFecha() ?></b></td>
+    </tr>
+    <?php endif; ?>
+    <?php endforeach; ?>
+</table>
+<br>
+<br>
+<?php
+echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml')
+?>
+<?php else :?>
+
+<div class="well">
+    <h1>No Hay Mensajes!</h1>
+</div>
+<?php endif;?>

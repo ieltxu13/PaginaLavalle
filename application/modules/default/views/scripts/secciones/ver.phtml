@@ -1,0 +1,55 @@
+<?php 
+$this->doctype(Zend_View_Helper_Doctype::XHTML1_RDFA);
+if($this->subseccion->getImagenes()->count() > 0) {
+$this->headMeta()->setName('og:title',$this->subseccion->getNombre())
+        ->setName('og:image',$this->url(array('module'=>'default',
+    'controller'=>'recursoss','action'=>$this->subseccion->getImagenes()->first()->getUrl())))
+        ->setName('og:description',$this->subseccion->getContenido())
+        ->setName('og:url',$this->url());
+} else {
+$this->headMeta()->setName('og:title',$this->subseccion->getNombre())
+        ->setName('og:description',$this->subseccion->getContenido())
+        ->setName('og:url',$this->url());
+}
+?>
+<img class="tab" src="<?php echo $this->baseUrl() . '/img/tab_2.png'?>"/><!-- DIVISOR -->
+<br />
+<div class="seccion">
+    <?php if($this->subseccion->getImagenes()->count() > 0) : ?>
+<?php if($this->subseccion->getImagenes()->count() < 2) : ?>
+    <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursoss',
+            'action'=>$this->subseccion->getImagenes()->first()->getUrl()))?>" style="float: left;">
+    <?php else: ?>
+    <div id="myCarousel" class="carousel slide"> <!--IMAGENES-->
+    <div class="carousel-inner">
+        <?php foreach ($this->subseccion->getImagenes() as $index => $imagen) : ?>
+        <?php if ($index == 0): ?>
+        <div class="item active">
+            <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursoss','action'=>$imagen->getUrl()))?>" alt="" class="imagenes-carousel">
+        </div>
+        <?php else : ?>
+        <div class="item">
+            <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursoss','action'=> $imagen->getUrl()))?>" alt="" class="imagenes-carousel">
+        </div>
+        <?php endif; endforeach; ?>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel --><!--FIN IMAGENES-->   
+<?php endif; endif;?>
+<a class="pull-right" href="#" 
+  onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;">
+  <img src="<?php echo $this->baseUrl(). '/img/compartir_en_face.png'?>">
+</a>
+<h2><?php echo $this->subseccion->getNombre() ?></h2>
+<br>
+<?php echo $this->subseccion->getContenido() ?>
+</div>
+<script>
+    activarLinkMenu('<?php echo $this->subseccion->getPadres()->first()->getNombre()?>');
+</script>

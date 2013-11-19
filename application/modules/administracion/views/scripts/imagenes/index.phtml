@@ -1,0 +1,41 @@
+<br /><br />
+<div class="container-fluid">
+    <div class="row-fluid visible-desktop">
+        <div class="span8">
+            
+        </div>
+        <div class="span2">
+            <h3>En Galería</h3>
+        </div>
+    </div>
+<?php foreach ($this->imagenes as $imagen) : ?>
+    <div class="row-fluid">
+        <div class="span4">
+            <img src="<?php echo $this->url(array('module'=>'default',
+    'controller'=>'recursosg','action'=>$imagen->getUrl()))?>" heigth="150px" width="150px" class="img-polaroid">
+        </div>
+        <div class="span4">
+            <h5><?php echo $imagen->getDescripcion() ?></h5>
+            <p><?php echo $imagen->getUrl()?></p>
+            <a href="<?php echo $this->url(array('module'=>'administracion',
+    'controller'=>'imagenes','action'=>'modificar-descripcion','id'=>$imagen->getId()))?>">Modificar Descripcion</a>
+        </div>
+        <div class="span2">
+            <?php if($imagen->getEnGaleria() == true) :?>
+                <img src="<?php echo $this->baseUrl() . '/img/si64.png'?>">
+                <a href="<?php echo $this->url(array('module'=>'administracion',
+                    'controller'=>'imagenes','action'=>'quitardegaleria','id'=>$imagen->getId()))?>"><p>Quitar</p></a>
+            <?php else: ?>
+                <img src="<?php echo $this->baseUrl() . '/img/no64.png'?>">
+                <a href="<?php echo $this->url(array('module'=>'administracion',
+    'controller'=>'imagenes','action'=>'agregaragaleria','id'=>$imagen->getId()))?>">Agregar</a>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
+<a class="btn btn-primary" href="<?php echo $this->url(array('module'=>'administracion',
+                    'controller'=>'imagenes','action'=>'agregarimagen'))?>"><p>Agregar Nueva</p></a>
+<?php
+echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml')
+?>

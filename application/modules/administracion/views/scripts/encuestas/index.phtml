@@ -1,0 +1,38 @@
+<div class="well-large">
+    <h1>Encuestas</h1>
+</div>
+<?php if (count($this->messages)) : ?>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <ul id="messages">
+            <?php foreach ($this->messages as $message) : ?>
+                <li><?php echo $this->escape($message); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
+<table class="table">
+    <tr>
+        <th>Fecha</th>
+        <th>Titulo</th>
+        <th>Pregunta</th>
+        <th>Ver</th>
+        <th>Activo</th>
+    </tr>
+    <?php foreach ($this->encuestas as $encuesta) : ?>
+        <tr>
+            <td><?php echo $encuesta->getFecha() ?></td>
+            <td><?php echo $encuesta->getTitulo() ?></td>
+            <td><?php echo $encuesta->getPregunta() ?></td>
+            <td><a href="<?php echo $this->url(array('module' => 'administracion', 'controller' => 'encuestas',
+        'action' => 'ver', 'id' => $encuesta->getId()))
+        ?>"><i class="icon-eye-open"></i></a></td>
+            <td><?php echo ($encuesta->getActiva() == true) ? 'SI' : 'NO' ?></td>
+        </tr>
+<?php endforeach; ?>
+</table>
+
+<a class="btn btn-success" href="<?php echo $this->url(array('module' => 'administracion', 'controller' => 'encuestas',
+    'action' => 'nueva'))
+?>">Crear Nueva Encuesta</a>

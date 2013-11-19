@@ -1,0 +1,12 @@
+<a href='<?php echo $this->url(array('module'=>'administracion',
+    'controller'=>'mensajes','action'=>'index'),null, true)?>'><i class="icon-arrow-left"></i></a>
+<br>
+<br>
+<hr>
+<br>
+<H3>Mensaje de <?php echo $this->mensaje->getDe()?> (<?php echo $this->mensaje->getEmail()?>)</H3>
+<br>
+<h5>Asunto: <?php echo $this->mensaje->getAsunto()?></h5>
+<br>
+<p><?php echo $this->mensaje->getContenido()?></p>
+<?php echo $this->mensaje->getFecha(); ?>

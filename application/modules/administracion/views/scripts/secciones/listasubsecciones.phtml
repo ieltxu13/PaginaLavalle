@@ -1,0 +1,25 @@
+<br /><br />
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+    </tr>
+    <?php foreach ($this->subsecciones as $subseccion) : ?>
+    <tr>
+        <td><?php echo $subseccion->getNombre() ?></td>
+        <?php if(($subseccion->getId() == 14 && Zend_Auth::getInstance()->getIdentity()->getRol() != 'administrador')
+                || ($subseccion->getId() == 16 && Zend_Auth::getInstance()->getIdentity()->getRol() != 'administrador')
+                || ($subseccion->getId() == 18 && Zend_Auth::getInstance()->getIdentity()->getRol() != 'administrador'))
+            : ?>
+        <td><a class="btn disabled" href="#"><i class="icon-pencil"></i></a></td>
+        <td><a class="btn disabled" href="#"><i class="icon-remove"></i></a></td>
+        <?php else: ?>
+        <td><a class="btn" href="<?php echo $this->url(array('module'=>'administracion',
+            'controller'=>'secciones','action'=>'ver','id'=>$subseccion->getId()))?>"><i class="icon-pencil"></i></a></td>
+        <td><a class="btn" href="<?php echo $this->url(array('module'=>'administracion',
+            'controller'=>'secciones','action'=>'eliminarsubseccion','id'=>$subseccion->getId()))?>"><i class="icon-remove"></i></a></td>
+        <?php endif; ?>
+    </tr>
+    <?php endforeach; ?>
+</table>

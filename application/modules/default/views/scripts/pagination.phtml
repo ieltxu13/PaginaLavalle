@@ -1,0 +1,50 @@
+<?php if ($this->pageCount): ?>
+    <div class="pagination pagination-centered">
+        <!-- First page link -->
+        <ul>
+            <li>
+            <?php if (isset($this->previous)): ?>
+                    <a href="<?php echo $this->url(array('pagina' => $this->first)); ?>">Primera</a>
+                <?php else: ?>
+                    <span class="disabled">Primera</span>
+            <?php endif; ?>
+            </li>
+            <!-- Previous page link -->
+            <li>
+                <?php if (isset($this->previous)): ?>
+                    <a href="<?php echo $this->url(array('pagina' => $this->previous)); ?>">&lt; Anterior</a>
+                <?php else: ?>
+                    <span class="disabled">&lt; Anterior</span>
+                <?php endif; ?>
+            </li>
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <li>
+                    <?php if ($this->current == $page): ?>
+                        <span class="muted"><?php echo $page ?></span>
+                    <?php else : ?>
+                        <a href="<?php echo $this->url(array('pagina' => $page)) ?>" id="pagina" pagina="<?php echo $page ?>"><?php echo $page ?></a>   
+                    <?php endif; ?>
+                </li>
+                <?php endforeach; ?>
+                <!-- Next page link -->
+                <li>
+                <?php if (isset($this->next)): ?>
+                    <a href="<?php echo $this->url(array('pagina' => $this->next)); ?>">Siguiente &gt;</a>
+                <?php else: ?>
+                    <span class="disabled">Siguiente &gt;</span>
+                <?php endif; ?>
+            </li>
+            <!-- Last page link -->
+            <li>
+                <?php if (isset($this->next)): ?>
+                    <a href="<?php echo $this->url(array('pagina' => $this->last)); ?>">Última</a>
+                <?php else: ?>
+                    <span class="disabled">Última</span>
+                <?php endif; ?>
+            </li>
+        </ul>
+    </div>
+<?php endif; ?>
+
+
+

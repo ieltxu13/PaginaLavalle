@@ -1,0 +1,305 @@
+/* 
+    Document   : estilos
+    Created on : Jul 6, 2013, 6:04:23 PM
+    Author     : Ieltxu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+body{
+    background: #e2e9f7;
+}
+.header{
+    height:150px;
+    background:  url(../img/head.jpg);
+}
+#container{
+    background: url(../img/base.jpg);
+    background-repeat: repeat-x;
+    height: 100%;
+}
+.navbar{ /*PARA QUE EL MENU "FLOTE" SOBRE EL HEADER*/
+    margin-top: -70px;
+}
+.imagen-logo{
+    position: absolute;
+    z-index: 9999;
+}
+
+.navbar-inner{
+    padding-top:10px;
+    padding-bottom: 10px;
+    /*padding-left:100px;*/
+    filter: none;
+}
+.navbar-inverse .navbar-inner{
+    background: transparent;
+    border: none;
+    /*padding-left:200px;*/
+}
+
+.navbar .nav {
+    margin: 0 10px 0px 55px;
+}
+
+.navbar .nav > li > a{
+    color: #1a1a1a;
+    font-weight: bold;
+    text-shadow: 1px 1px #e2e9f7;
+    -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+    -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+}
+
+.navbar .nav > li > a:hover{
+    color: white;
+    text-shadow: 2px 2px grey;
+}
+
+.navbar .nav .active > a{
+    color: white;
+    text-shadow: 2px 2px grey;
+    background: none;
+}
+
+.navbar .nav .active > a:hover{
+    background: none;
+}
+
+@media (max-width: 979px){
+    .nav{
+        background-color: #3D7CC4;
+        color: #1a1a1a;
+    }    
+}
+.contenidoCentral{
+    border-left: 1px solid cornflowerblue;
+    border-right: 1px solid cornflowerblue;
+}
+
+.seccion{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav > li > a{
+    color:white;
+}
+
+/**sombreado de cada seccion en el menu **/
+.navbar .nav > li > a {
+
+}
+
+/**sombra blanca en el menu **/
+.inverse .nav > li > a {
+    text-shadow: 0 1 0 rgba(0, 0, 0, 0.25);
+}
+.azul{
+    min-width: 120px;
+}
+.azul > li > a{
+    background-color: #3D7CC4;
+}
+
+.azul > li > a:hover{
+    color: #666;
+}
+
+.azul .tituloAzul a,.azul .tituloAzul a:hover{
+    background-color: #1D53A2;
+}
+
+.naranja{
+    min-width: 120px;
+}
+
+.naranja > li > a{
+    background-color: #F79F35;
+}
+
+.naranja > li > a:hover{
+    color: #666;
+}
+
+.naranja .tituloNaranja a,.naranja .tituloNaranja a:hover{
+    background-color: #CA6C18;   
+}
+
+.verde{
+    min-width: 120px;
+}
+
+.verde > li > a{
+    background-color: #66A63C;
+}
+
+.verde > li > a:hover{
+    color: #666;
+}
+
+.verde .tituloVerde a,.verde .tituloVerde a:hover{
+    background-color: #2E832B;
+}
+
+.row-fluid{
+    padding-top: 20px;
+}
+
+.tab{
+    width:100%;
+}
+
+.videos{
+    position: static;
+}
+
+.videos h1{
+    font-size: 24px;
+}
+
+.videos p{
+    font-size: 18px;
+}
+
+.carousel-caption h1, p{
+    word-wrap: break-word
+}
+
+.carousel-caption h1{
+    color:#B7B7B7;
+}
+
+.carousel-inner {
+    -webkit-border-radius: 5px 5px 5px 5px;  
+    -ms-border-radius: 5px;
+    -moz-border-radius-topright : 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft : 5px;
+    -moz-border-radius-topleft : 5px;
+}
+
+.item .container {
+    width: auto;
+}
+
+.flotantearriba{
+    margin-top: -150px;
+}
+
+.flotanteabajo{
+    margin-top: 0px;
+}
+
+#flotante1 {
+    width:inherit;
+}
+
+#flotante2 {
+    width:inherit;
+}
+
+.imagenes-carousel{
+    -webkit-border-radius: 5px 5px 5px 5px;  
+    -ms-border-radius: 5px;
+    -moz-border-radius-topright : 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft : 5px;
+    -moz-border-radius-topleft : 5px;
+
+}
+
+.imagenes-texto{
+    position: static;
+}
+
+.imagenes-texto h1{
+    font-size: 24px;
+}
+
+imagenes-noticia{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.noticiasPrincipales a{
+    text-decoration: none;
+    color: #666;
+}
+
+.noticiasPrincipales a:hover{
+    text-decoration: none;
+    color: #666;
+}
+
+.listadoNoticias a{
+    text-decoration: none;
+    color: #666;
+}
+
+.listadoNoticias a:hover{
+    text-decoration: none;
+    color: #666;
+}
+.noticia {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.noticia img {
+
+    float: left;
+    margin-right: 10px;
+
+}
+
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle, .navbar-inverse .nav li.dropdown.active > .dropdown-toggle, .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle{
+    color: white;
+    text-shadow: 2px 2px grey;
+    background: none;
+}
+
+.aficheVentanilla {
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    width: auto;
+}
+
+.aficheVentanillaImagen{
+    right: 0;
+    float:left;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    overflow: hidden;
+    transition: right 500ms;
+}
+
+.aficheVentanillaImagen img{
+    max-width: 100% !important;
+}
+
+.aficheVentanillaOculto{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width:100%;
+}
+
+.aficheVentanilla:hover .aficheVentanillaImagen{
+    right:100%;
+    transition: right 500ms;
+}
+
+
+@media (max-width: 767px){
+    [class*="span"], .uneditable-input[class*="span"], .row-fluid [class*="span"] {
+        clear:both;
+    }
+
+    .flotantearriba{
+        margin-top: 0px;
+    }
+
+}

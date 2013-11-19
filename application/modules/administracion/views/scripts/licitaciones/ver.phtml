@@ -1,0 +1,27 @@
+<div class="well-large">
+    <h1><?php echo $this->licitacion->getNumero().'/'.$this->licitacion->getAnio()?></h1>
+</div>
+
+<hr>
+
+<ul class="nav nav-tabs nav-stacked">
+    <li>
+        <a><strong>Descripcion: </strong><?php echo $this->licitacion->getDescripcion()?></a>
+    </li>
+    <li>
+        <a><strong>Tipo de contratacion: </strong><?php echo $this->licitacion->getTipoDeContratacion()?></a>
+    </li>
+    <li>
+        <a><strong>Fecha de Apertura: </strong><?php echo $this->licitacion->getFechaDeApertura()?></a>
+    </li>
+</ul>
+
+<?php if($this->licitacion->getActiva()) : ?>
+<a class="btn btn-danger" href="<?php echo $this->url(array('module'=>'administracion','controller'=>'licitaciones',
+        'action'=>'desactivar','id'=>$this->licitacion->getId()))?>">Desactivar</a>
+<?php else: ?>
+<a class="btn btn-success" href="<?php echo $this->url(array('module'=>'administracion','controller'=>'licitaciones',
+        'action'=>'activar','id'=>$this->licitacion->getId()))?>">Activar</a>
+<?php endif; ?>
+<a class="btn btn-success" href="<?php echo $this->url(array('module'=>'administracion','controller'=>'licitaciones',
+        'action'=>'pdf','id'=>$this->licitacion->getId()))?>">Generar Certificado</a>

@@ -1,0 +1,12 @@
+
+
+<div class="widgetEncuesta">
+    <div class="pregunta">
+        <h1><?php echo $this->encuesta->getPregunta()?></h1>
+        <a id="encuestaSi" encuesta="<?php echo $this->encuesta->getId()?>" class="btn btn-success pull-left btn-large">Si</a> 
+        <a id="encuestaNo" encuesta="<?php echo $this->encuesta->getId()?>" class="btn btn-danger btn-large">No</a>
+    </div>
+    <div class="resultados">
+    <canvas id="graficoResultados" width="200" height="200" style="float:left;"></canvas>
+    </div>
+</div>

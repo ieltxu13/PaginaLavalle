@@ -1,0 +1,35 @@
+
+<?php 
+$this->doctype(Zend_View_Helper_Doctype::XHTML1_RDFA);
+$this->headMeta()->setProperty('og:title',$this->noticia->getTitulo())
+        ->setProperty('og:image',$this->url(array('module'=>'default',
+    'controller'=>'recursosn','action'=>$this->noticia->getArchivoPrincipal()->getUrl())))
+        ->setProperty('og:description',$this->noticia->getCopete())
+        ->setProperty('og:url',$this->url());?>
+
+
+<a href='<?php echo $this->url(array('module'=>'administracion',
+    'controller'=>'noticias','action'=>'index'),null, true)?>'><i class="icon-arrow-left"></i></a>
+<h1><?php echo $this->noticia->getTitulo() ?></h1>
+<br>
+<h3><?php echo $this->noticia->getCopete()?></h3>
+<?php if($this->noticia->getArchivoPrincipal()): ?>
+<img src="<?php echo $this->url(array('module'=>'default',
+    'controller'=>'recursosn','action'=>$this->noticia->getArchivoPrincipal()->getUrl())) ?>" style="float:left; margin-right: 10px"
+     height="300px" width="300">
+<?php else: ?>
+<div class="media">
+  <a class="pull-left" href="<?php echo $this->url(array('module'=>'administracion',
+      'controller'=>'noticias', 'action' => 'agregarimagen', 'id' => $this->noticia->getId())) ?>">
+    <img class="img-polaroid" src="http://placehold.it/400x400">
+  </a>
+  <div class="media-body">
+      <h4 class="media-heading">Haga Click en la Imágen para Insertar</h4>
+    ...
+  </div>
+</div>
+<?php endif; ?>
+
+
+<br>
+<p><?php echo $this->noticia->getContenido() ?></p>

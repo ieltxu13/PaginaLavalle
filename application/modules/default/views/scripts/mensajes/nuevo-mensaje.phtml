@@ -1,0 +1,15 @@
+<?php if (isset($this->enviado)) : ?>
+
+<div class="well">
+    <h1>Tu mensaje ha sido enviado. Gracias por comunicarte con nosotros!</h1>
+</div>
+
+<?php else: ?>
+<div class="well">
+    <h1>
+        Dejanos un mensaje!
+    </h1>
+</div>
+<?php echo $this->form; ?>
+
+<?php endif; ?>

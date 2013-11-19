@@ -1,0 +1,35 @@
+<?php 
+$this->doctype(Zend_View_Helper_Doctype::XHTML1_RDFA);
+if ($this->noticia->getArchivoPrincipal()) {
+$this->headMeta()->setProperty('og:title',$this->noticia->getTitulo())
+        ->setProperty('og:image',$this->url(array('module'=>'default',
+    'controller'=>'recursosn','action'=>$this->noticia->getArchivoPrincipal()->getUrl())))
+        ->setProperty('og:description',$this->noticia->getCopete())
+        ->setProperty('og:url',$this->url());
+} else {
+ $this->headMeta()->setProperty('og:title',$this->noticia->getTitulo())
+        ->setProperty('og:description',$this->noticia->getCopete())
+        ->setProperty('og:url',$this->url());   
+}
+?>
+<div class="noticia">
+    <a class="pull-right" href="#" 
+  onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;">
+  <img src="<?php echo $this->baseUrl(). '/img/compartir_en_face.png'?>">
+</a>
+<h1><?php echo $this->noticia->getTitulo() ?></h1>
+<br>
+<h3><?php echo $this->noticia->getCopete()?></h3>
+<?php if ($this->noticia->getArchivoPrincipal()) :?>
+<div>
+<img height="300" width="300" src="<?php echo $this->url(array('module'=>'default',
+    'controller'=>'recursosn','action'=>$this->noticia->getArchivoPrincipal()->getUrl())) ?>">
+</div>
+<?php endif; ?>
+<p><?php echo $this->noticia->getContenido() ?></p>
+</div>

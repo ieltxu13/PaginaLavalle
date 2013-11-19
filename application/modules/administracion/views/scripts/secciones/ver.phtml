@@ -1,0 +1,35 @@
+<br /><br />
+
+<?php if($this->subseccion->getImagenes()->count() > 0) : ?>
+<?php if($this->subseccion->getImagenes()->count() < 2) : ?>
+    <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursoss',
+            'action'=>$this->subseccion->getImagenes()->first()->getUrl()))?>" style="float: left;">
+    <?php else: ?>
+    <div id="myCarousel" class="carousel slide"> <!--IMAGENES-->
+    <div class="carousel-inner">
+        <?php foreach ($this->subseccion->getImagenes() as $index => $imagen) : ?>
+        <?php if ($index == 0): ?>
+        <div class="item active">
+            <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursoss','action'=>$imagen->getUrl()))?>" alt="" class="imagenes-carousel">
+        </div>
+        <?php else : ?>
+        <div class="item">
+            <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursoss','action'=> $imagen->getUrl()))?>" alt="" class="imagenes-carousel">
+        </div>
+        <?php endif; endforeach; ?>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel --><!--FIN IMAGENES-->   
+<?php endif; endif;?>
+<a href="<?php echo $this->url(array('module'=>'administracion',
+        'controller'=>'secciones','action'=>'editarsubseccion','id'=>$this->subseccion->getId()))?>" class="btn btn-large btn-primary">Editar</a>
+<h2><?php echo $this->subseccion->getNombre() ?></h2>
+<br>
+<?php echo $this->subseccion->getContenido() ?>
+
+<br>
+<hr>
+<br>
+<a href="<?php echo $this->url(array('module'=>'administracion',
+        'controller'=>'secciones','action'=>'imagenes','id'=>$this->subseccion->getId()))?>" class="btn btn-large btn-primary">Administrar Imágenes de esta Sección</a>

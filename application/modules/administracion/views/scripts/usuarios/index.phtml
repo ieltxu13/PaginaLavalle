@@ -1,0 +1,14 @@
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Rol</th>
+        <th>Ultimo Login</th>
+    </tr>
+    <?php foreach($this->usuarios as $usuario) : ?>
+    <tr>
+        <td><?php echo $usuario->getNombre().' '.$usuario->getApellido() ?></td>
+        <td><?php echo $usuario->getRol() ?></td>
+        <td><?php echo $usuario->getUltimoAcceso() ?></td>
+    </tr>
+    <?php endforeach; ?>
+</table>

@@ -1,0 +1,38 @@
+<br /><br />
+<div class="hero-unit">
+    <h1>Imágenes de la Sección <?php echo $this->subseccion->getNombre() ?></h1>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span4">
+            <img src="http://placehold.it/800x350" class="img-polaroid">
+        </div>
+        <div class="span8">
+            <h3>Agregar Imágen</h3><?php echo $this->form ?>
+        </div>
+    </div>
+    <hr>
+    <?php if ($this->subseccion->getImagenes()->count() > 0) : ?>
+        <?php foreach ($this->subseccion->getImagenes() as $imagen) : ?>
+            <div class="row-fluid">
+                <div class="span4">
+                    <img src="<?php
+                    echo $this->url(array('module' => 'default',
+                        'controller' => 'recursoss', 'action' => $imagen->getUrl()))
+                    ?>" heigth="150px" width="150px" class="img-polaroid">
+                </div>
+                <div class="span8">
+                    <br><br>
+                    <a class="btn btn-danger" href="<?php echo $this->url(array('module' => 'administracion',
+                     'controller' => 'secciones', 'action' => 'quitarimagen', 'idimagen' => $imagen->getId()))
+                    ?>">Quitar</a>
+                </div>
+            </div> 
+            <hr>
+        <?php endforeach; ?>
+
+    <?php else: ?>
+        <h1>No hay Imágenes vinculadas con esta sección aún..</h1>
+<?php endif; ?>
+
+</div>

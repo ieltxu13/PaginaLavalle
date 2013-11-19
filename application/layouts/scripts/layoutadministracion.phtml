@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Administracion Página Municipalidad de Lavalle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <?php
+        echo $this->headLink()
+                ->prependStylesheet($this->baseUrl() . '/css/estilosadministracion.css')
+                ->prependStylesheet($this->baseUrl() . '/css/bootstrap.css')
+                ->prependStylesheet($this->baseUrl() . '/js/datepicker/css/datepicker.css');
+        echo $this->headMeta();
+        ?>
+        <style type="text/css">
+            body {
+                padding-bottom: 40px;
+                padding-top: 40px;
+            }
+            .sidebar-nav {
+                padding: 9px 0;
+            }
+
+            @media (max-width: 980px) {
+                /* Enable use of floated navbar text */
+                .navbar-text.pull-right {
+                    float: none;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            }
+        </style>
+       <!--<link href="/PaginaLavalle/public/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css"/>-->
+       <link href="<?php echo $this->baseUrl() . '/css/bootstrap-responsive.css'?>" media="screen" rel="stylesheet" type="text/css"/>
+        <?php
+        echo $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/js/jquery-1.10.2.min.js')
+                ->appendFile($this->baseUrl() . '/js/bootstrap.js')
+                ->appendFile($this->baseUrl() . '/js/jquery/cookie/jquery.cookie.js')
+                ->appendFile($this->baseUrl() . '/js/frontend.js')
+                ->appendFile($this->baseUrl() . '/js/jchart/Chart.min.js')
+                ->appendFile($this->baseUrl() . '/js/encuesta.js')
+                ->appendFile($this->baseUrl() . '/js/datepicker/js/bootstrap-datepicker.js')
+                ->appendFile($this->baseUrl() . '/ckeditor/ckeditor.js');
+        ?>
+    </head>
+
+    <body>
+        <?php
+        $this->navigation()->menu()->setPartial(array('partials/navHorizontal.phtml', 'administracion'));
+        echo $this->navigation();
+        ?>
+
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+
+                </div>
+                <div class="span8">
+                    <?php echo $this->layout()->content; ?>
+                </div>
+                <div class="span2">
+
+                </div>
+            </div>
+        </div> <!-- /container -->
+    </body>
+</html>
