@@ -18,7 +18,7 @@ body{
     height: 100%;
 }
 .navbar{ /*PARA QUE EL MENU "FLOTE" SOBRE EL HEADER*/
-    margin-top: -70px;
+    
 }
 .imagen-logo{
     position: absolute;
@@ -28,7 +28,7 @@ body{
 .navbar-inner{
     padding-top:10px;
     padding-bottom: 10px;
-    /*padding-left:100px;*/
+    padding-left:150px;
     filter: none;
 }
 .navbar-inverse .navbar-inner{
@@ -84,10 +84,13 @@ body{
 .todo{
     margin-top: -10px; 
 }
+.mynav{
+    padding-top: 100px;
+}
 
 .filaNavBar {
-    margin-bottom: 0;
-    position: absolute;
+    position: relative;
+    clear: both;
 }
 
 .seccion{
