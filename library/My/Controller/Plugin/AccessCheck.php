@@ -12,6 +12,7 @@ class My_Controller_Plugin_AccessCheck extends Zend_Controller_Plugin_Abstract {
         $resource = $request->getControllerName();
         $action = $request->getActionName();
         if(!$this->_acl->isAllowed(Zend_Registry::get('rol'), $module.':'.$resource,$action)){
+            echo $module.':'.$resource,$action;
             if(!Zend_Auth::getInstance()->hasIdentity()){
             $request->setModuleName('administracion')
                     ->setControllerName('index')

@@ -34,7 +34,13 @@ class Archivo
      */
     protected $descripcion;
     
-
+    /**
+     *
+     * @var boolean
+     * @Column(type="boolean")
+     */
+    protected $paraGaleria;
+    
     /**
      *
      * @var boolean
@@ -82,7 +88,14 @@ class Archivo
         return $this->enGaleria;
     }
     
-
+    public function setParaGaleria($paraGaleria = true) {
+        $this->paraGaleria = $paraGaleria;
+    }
+    
+    public function getParaGaleria() {
+        return $this->paraGaleria;
+    }
+    
     public function getSubsecciones(){
         return $this->subSecciones;
     }

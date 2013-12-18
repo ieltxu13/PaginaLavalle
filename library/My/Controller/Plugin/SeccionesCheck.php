@@ -36,10 +36,12 @@ class My_Controller_Plugin_SeccionesCheck extends Zend_Controller_Plugin_Abstrac
                     break;
                 
                 case 9:
+                    if($request->getModuleName() == 'default') {
+                        
                     
                     $request->setControllerName('secciones');
                     $request->setActionName('hcd');
-                    
+                    }
                     break;
                 
                 case 15:
