@@ -5,11 +5,10 @@
                         <?php if ($index == 0 || $index == 3) : ?>
                 <div class="row-fluid">    
                     <div class="span4 noticiasPrincipales">
-                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+                        <a href="<?php echo $this->url(array('id' => $noticiap->getId()),'noticia', true) ?>">
                             <?php if ($noticiap->getArchivoPrincipal()) : ?>
                                 <img height="300" width="300" src="<?php
-                                     echo $this->url(array('module' => 'default',
-                                         'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                     echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',true)
                                      ?>">
         <?php endif; ?>
                             <h5><?php echo $noticiap->getTitulo() ?></h5>
@@ -19,11 +18,10 @@
                     </div>
                         <?php elseif ($index == 2 || $index == 5) : ?>   
                     <div class="span4 noticiasPrincipales">
-                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+                        <a href="<?php echo $this->url(array('id' => $noticiap->getId()), 'noticia', true) ?>">
                             <?php if ($noticiap->getArchivoPrincipal()) : ?>
                                 <img height="300" width="300" src="<?php
-                                     echo $this->url(array('module' => 'default',
-                                         'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                     echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',true)
                                      ?>">
         <?php endif; ?>
                             <h5><?php echo $noticiap->getTitulo() ?></h5>
@@ -34,12 +32,11 @@
                 </div>
                     <?php else: ?>
                 <div class="span4 noticiasPrincipales">
-                    <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+                    <a href="<?php echo $this->url(array('id' => $noticiap->getId()), 'noticia', true) ?>">
 
                         <?php if ($noticiap->getArchivoPrincipal()) : ?>
                             <img height="300" width="300" src="<?php
-                                 echo $this->url(array('module' => 'default',
-                                     'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                 echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',true)
                                  ?>">
         <?php endif; ?>
                         <h5><?php echo $noticiap->getTitulo() ?></h5>

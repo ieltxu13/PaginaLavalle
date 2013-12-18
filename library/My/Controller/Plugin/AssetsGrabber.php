@@ -23,6 +23,12 @@ class My_Controller_Plugin_AssetsGrabber extends Zend_Controller_Plugin_Abstract
                 echo file_get_contents(APPLICATION_PATH . '/recursos/secciones/' . str_replace('+', ' ', $action));
                 break;
             
+            case 'recursosa':
+                $action = $request->getActionName();
+                Header("Content-Type: image; charset=UTF-8");
+                echo file_get_contents(APPLICATION_PATH . '/recursos/acuerdo3949/' . str_replace('+', ' ', $action));
+                break;
+            
             case 'recursosg':
                 
                 $action = $request->getActionName();

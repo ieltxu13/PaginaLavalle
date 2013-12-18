@@ -1,0 +1,27 @@
+<br /><br />
+
+<div class="well">
+    <h1>Revista Crecemos</h1>
+</div>
+
+<a class="btn btn-primary" href="<?php echo $this->url(array(
+    'module' => 'administracion', 
+    'controller' => 'revista-crecemos',
+    'action' => 'subir-documentos'
+))?>">Nuevo Documento</a>
+<table class="table">
+    <tr>
+        <th>Numero</th>   
+        <th>Documento</th>
+    </tr>
+    <?php if ($this->revistas) :?>
+    <?php foreach ($this->revistas as $revista) : ?>
+    <tr>
+        <td><?php echo $proyecto->getNumero()?></td>
+        <td><a href="<?php echo $this->baseUrl() . '/revistaCrecemos/'.$revista->getUrl() ?>" target="_blank" onClick="window.open(this.href, this.target, 'width=700,height=600');
+return false;" role="button" data-toggle="modal" ><?php echo $proyecto->getUrl()?></a></td>
+    </tr>
+    <?php endforeach; else: ?>
+    <tr>No se encontraron Registros</tr>
+    <?php endif;?>
+</table>

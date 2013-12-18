@@ -22,7 +22,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $fc = Zend_Controller_Front::getInstance();
         $fc->registerPlugin(new My_Controller_Plugin_AssetsGrabber());
         $fc->registerPlugin(new My_Controller_Plugin_SeccionesCheck());
-        //$fc->registerPlugin(new My_Controller_Plugin_Modular_ErrorController());
+        $fc->registerPlugin(new My_Controller_Plugin_Modular_ErrorController());
         $fc->registerPlugin(new My_Controller_Plugin_AccessCheck($this->_acl));
     }
 
@@ -49,5 +49,82 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->navigation($navContainer)->setAcl($this->_acl)->setRole(Zend_Registry::get('rol'));
     }
 
+    protected function _initRoutes() {
+        
+        $frontControlller = Zend_Controller_Front::getInstance();
+        $router = $frontControlller->getRouter();
+        
+        $router->addRoute(
+                'subseccion',
+                new Zend_Controller_Router_Route('secciones/ver/:id', array(
+                    'module'=>'default',
+                    'controller'=>'secciones',
+                    'action'=>'ver',
+                    'id'=>null
+                ),
+                array('id' => '\d+')
+                )
+                );
+        $router->addRoute(
+                'noticia',
+                new Zend_Controller_Router_Route('noticia/:id', array(
+                    'module'=>'default',
+                    'controller'=>'noticias',
+                    'action'=>'noticia',
+                    'id'=>null
+                ),
+                array('id' => '\d+')
+                )
+                );
+        $router->addRoute(
+                'inicio',
+                new Zend_Controller_Router_Route('/', array(
+                    'module'=>'default',
+                    'controller'=>'index',
+                    'action'=>'index',
+                ))
+                );
+        $router->addRoute(
+                'recurso-noticia',
+                new Zend_Controller_Router_Route('imagen/:action', array(
+                    'module'=>'default',
+                    'controller'=>'recursosn',
+                ))
+                );
+        $router->addRoute(
+                'recurso-seccion',
+                new Zend_Controller_Router_Route('imagen-seccion/:action', array(
+                    'module'=>'default',
+                    'controller'=>'recursoss',
+                ))
+                );
+        $router->addRoute(
+                'recurso-galeria',
+                new Zend_Controller_Router_Route('imagen-galeria/:action', array(
+                    'module'=>'default',
+                    'controller'=>'recursosg',
+                ))
+                );
+        $router->addRoute(
+                'acuerdo',
+                new Zend_Controller_Router_Route('acuerdo3949', array(
+                    'module'=>'default',
+                    'controller'=>'secciones',
+                    'action'=> 'acuerdo'
+                ))
+                );
+         
+        $router->addRoute(
+                'todas-las-noticias',
+                new Zend_Controller_Router_Route('historial/:pagina', array(
+                    'module'=>'default',
+                    'controller'=>'noticias',
+                    'action'=> 'todas',
+                    'pagina' => 1
+                ),
+                array('pagina' => '\d+')
+                        )
+                );
+    }
 }
 

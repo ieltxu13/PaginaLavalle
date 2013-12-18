@@ -35,6 +35,13 @@ class My_Controller_Plugin_SeccionesCheck extends Zend_Controller_Plugin_Abstrac
 
                     break;
                 
+                case 9:
+                    
+                    $request->setControllerName('secciones');
+                    $request->setActionName('hcd');
+                    
+                    break;
+                
                 case 15:
 
                     $request->setControllerName('licitaciones');
@@ -56,6 +63,12 @@ class My_Controller_Plugin_SeccionesCheck extends Zend_Controller_Plugin_Abstrac
 
                     break;
                 
+                case 19:
+
+                    $request->setControllerName('secciones');
+                    $request->setActionName('revista-crecemos');
+
+                    break;
                 default:
                     break;
             }

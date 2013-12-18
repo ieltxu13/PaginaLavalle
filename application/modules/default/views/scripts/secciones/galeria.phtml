@@ -5,14 +5,14 @@
         <?php foreach ($this->imagenes as $index => $imagen) : ?>
         <?php if ($index == 0): ?>
         <div class="item active">
-            <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursosg','action'=>$imagen->getUrl()))?>" alt="" class="imagenes-carousel">
+            <img src="<?php echo $this->url(array('action'=>$imagen->getUrl()),'recurso-galeria',true)?>" alt="" class="imagenes-carousel">
             <div class="carousel-caption imagenes-texto">
                 <p><?php echo $imagen->getDescripcion()?></p>
             </div>
         </div>
         <?php else : ?>
         <div class="item">
-            <img src="<?php echo $this->url(array('module'=>'default','controller'=>'recursosg','action'=> $imagen->getUrl()))?>" alt="" class="imagenes-carousel">
+            <img src="<?php echo $this->url(array('action'=> $imagen->getUrl()),'recurso-galeria',true)?>" alt="" class="imagenes-carousel">
             <div class="carousel-caption imagenes-texto">
                 <p><?php echo $imagen->getDescripcion()?></p>
             </div>

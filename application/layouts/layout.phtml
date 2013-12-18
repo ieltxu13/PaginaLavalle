@@ -36,7 +36,7 @@
     <link href="<?php echo $this->baseUrl() . '/css/bootstrap-responsive.css'?>" media="screen" rel="stylesheet" type="text/css"/>
     <?php
     echo $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/js/jquery-1.10.2.min.js')
-            ->appendFile($this->baseUrl() . '/js/bootstrap.min.js')
+            ->appendFile($this->baseUrl() . '/js/bootstrap.js')
             ->appendFile($this->baseUrl() . '/js/jquery/cookie/jquery.cookie.js')
             ->appendFile($this->baseUrl() . '/js/frontend.js')
             ->appendFile($this->baseUrl() . '/js/jchart/Chart.min.js')
@@ -87,7 +87,7 @@
                             <a class="brand" href="#"></a>
                             <div class="nav-collapse in collapse ">
                                 <ul class="nav">
-                                    <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true) ?>">inicio</a></li>
+                                    <li><a href="<?php echo $this->url(array(), 'inicio', true) ?>">inicio</a></li>
                                     <?php echo $this->menuPrincipal(); ?>
                                 </ul>
                             </div><!--/.nav-collapse -->
@@ -114,6 +114,9 @@
             </div>
             <div class="span2 derecha">
                 <div id="flotante2" class="affix flotanteabajo">
+                    
+                    <?php echo $this->seccionCostado(0, 'verde', 'derecha'); ?>
+                    <br><br><br><br><br>
                     <div id="experiment">
                         <div id="cube">
                             <div class="face one">
@@ -135,11 +138,9 @@
                             <div class="face six">
                                 <img src="<?php echo $this->baseUrl() . '/css/cubo/images/logoVentanilla.png"' ?>" />
                             </div>
-
                         </div>
                     </div>
-                    <br><br><br><br><br>
-                    <?php echo $this->seccionCostado(0, 'verde', 'derecha'); ?>
+                    
                 </div>
             </div>
         </div>

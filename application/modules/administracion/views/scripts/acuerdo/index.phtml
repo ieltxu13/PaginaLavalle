@@ -1,0 +1,29 @@
+<br /><br />
+
+<div class="well">
+    <h1>Acuerdo 3949</h1>
+</div>
+
+<a class="btn btn-primary" href="<?php echo $this->url(array(
+    'module' => 'administracion', 
+    'controller' => 'acuerdo',
+    'action' => 'subir-documentos'
+))?>">Nuevo Documento</a>
+<table class="table">
+    <tr>
+        <th>Ejercicio</th>   
+        <th>Período</th>
+        <th>Documento</th>
+    </tr>
+    <?php if ($this->acuerdos) :?>
+    <?php foreach ($this->acuerdos as $proyecto) : ?>
+    <tr>
+        <td><?php echo $proyecto->getEjercicio()?></td>
+        <td><?php echo $proyecto->getPeriodo()?></td>
+        <td><a href="<?php echo $this->baseUrl() . '/acuerdo/'.$proyecto->getUrlDocumento() ?>" target="_blank" onClick="window.open(this.href, this.target, 'width=700,height=600');
+return false;" role="button" data-toggle="modal" ><?php echo $proyecto->getDescripcion()?></a></td>
+    </tr>
+    <?php endforeach; else: ?>
+    <tr>No se encontraron Registros</tr>
+    <?php endif;?>
+</table>

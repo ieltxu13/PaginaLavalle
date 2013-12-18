@@ -7,11 +7,17 @@ class Default_SeccionesController extends Zend_Controller_Action
      * @var Bisna\Application\Container\DoctrineContainer
      *
      *
+     *
+     *
+     *
      */
     protected $_doctrineContainer = null;
 
     /**
      * @var Doctrine\ORM\EntityManager
+     *
+     *
+     *
      *
      *
      */
@@ -58,11 +64,86 @@ class Default_SeccionesController extends Zend_Controller_Action
         $noticiasPrincipales = $query2->getResult();   
  
         $this->view->noticiasPrincipales = $noticiasPrincipales;
+    }
+
+    public function hcdAction()
+    {
+        if ($this->_getParam('id')){
+            $id = $this->_getParam('id');
+            $subseccion = $this->_em->find('My\Entity\SubSeccion', $id);
+        }else {
+            $this->_helper->redirector('index','index');
+        }
+        $queryDec = $this->_em->createQuery('Select p from My\Entity\ProyectoHCD p WHERE p.tipo = ?1');
+        $queryDec->setParameter(1, 'Declaracion');
+        $queryOrd = $this->_em->createQuery('Select p from My\Entity\ProyectoHCD p WHERE p.tipo = ?1');
+        $queryOrd->setParameter(1, 'Ordenanza');
+        $queryRes = $this->_em->createQuery('Select p from My\Entity\ProyectoHCD p WHERE p.tipo = ?1');
+        $queryRes->setParameter(1, 'Resolucion');
+        $proyectosDec = $queryDec->getResult();
+        $proyectosOrd = $queryOrd->getResult();
+        $proyectosRes = $queryRes->getResult();
         
+        $this->view->proyectosDec = $proyectosDec;
+        $this->view->proyectosOrd = $proyectosOrd;
+        $this->view->proyectosRes = $proyectosRes;
+        $this->view->subseccion = $subseccion;
+    }
+
+    public function acuerdoAction()
+    {
+        if (!$this->_request->isXmlHttpRequest()) {
+        $query = $this->_em->createQuery('Select a from My\Entity\DocumentoAcuerdo a');
+        $acuerdos = $query->getResult();
+        
+        $this->view->acuerdos = $acuerdos;
+        
+        $select = new Zend_Form_Element_Select('acuerdo');
+        foreach ($acuerdos as $acuerdo) {
+            $select->addMultiOption($acuerdo->getEjercicio().$acuerdo->getPeriodo(),'Ejercicio '.$acuerdo->getEjercicio().' - Período'.$acuerdo->getPeriodo());
+        }
+        $this->view->select = $select;
+        }else {
+            $acuerdo = $this->getParam('acuerdo');
+            $periodo = substr($acuerdo, 4);
+            $ejercicio = substr($acuerdo, 0, 4);
+            
+            $query = $this->_em->createQuery('Select a from My\Entity\DocumentoAcuerdo a where a.ejercicio = ?1 AND a.periodo = ?2');
+            $query->setParameter(1, $ejercicio);
+            $query->setParameter(2, $periodo);
+            $acuerdosAjax = $query->getArrayResult();
+            
+            $this->_helper->layout()->disableLayout();
+            $this->_helper->viewRenderer->setNoRender(true);
+            header('Content-Type: application/json;charset=utf-8_spanish_ci');
+            echo Zend_Json::encode($acuerdosAjax);
+        }
         
     }
 
+    public function revistaCrecemosAction()
+    {
+        if ($this->_getParam('id')){
+            $id = $this->_getParam('id');
+            $subseccion = $this->_em->find('My\Entity\SubSeccion', $id);
+        }else {
+            $this->_helper->redirector('index','index');
+        }
+        $query = $this->_em->createQuery('Select r from My\Entity\RevistaCrecemos r ORDER BY r.numero DESC');
+        $revistas = $query->getResult();
+
+        $this->view->revistas = $revistas;
+        $this->view->subseccion = $subseccion;
+    }
+
+
 }
+
+
+
+
+
+
 
 
 

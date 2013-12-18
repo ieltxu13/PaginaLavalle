@@ -33,6 +33,38 @@
                     <resource>administracion:licitaciones</resource>
                     <privilege>index</privilege>
                 </licitaciones>
+                <colectivos>
+                    <label>Colectivos</label>
+                    <module>administracion</module>
+                    <controller>colectivos</controller>
+                    <action>index</action>
+                    <resource>administracion:colectivos</resource>
+                    <privilege>index</privilege>
+                </colectivos>
+                <acuerdo>
+                    <label>Acuerdo 3949</label>
+                    <module>administracion</module>
+                    <controller>acuerdo</controller>
+                    <action>index</action>
+                    <resource>administracion:acuerdo</resource>
+                    <privilege>index</privilege>
+                </acuerdo>
+                <hcd>
+                    <label>H C D</label>
+                    <module>administracion</module>
+                    <controller>hcd</controller>
+                    <action>index</action>
+                    <resource>administracion:hcd</resource>
+                    <privilege>index</privilege>
+                </hcd>
+                <revistaCrecemos>
+                    <label>Revista Crecemos</label>
+                    <module>administracion</module>
+                    <controller>revista-crecemos</controller>
+                    <action>index</action>
+                    <resource>administracion:revista-crecemos</resource>
+                    <privilege>index</privilege>
+                </revistaCrecemos>
             </pages>
         </administracion>
         <noticias>

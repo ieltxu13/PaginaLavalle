@@ -1,0 +1,13 @@
+<br><br><br>
+<?php if (count($this->messages)) : ?>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <ul id="messages">
+            <?php foreach ($this->messages as $message) : ?>
+                <li><?php echo $this->escape($message); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+<br><br>
+<?php echo $this->form; ?>

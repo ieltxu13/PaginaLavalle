@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'BUDHAND2';
+    
+    	src: url('http://fontsforweb.com/public/fonts/2074/BUDHAND2.eot');
+	src: local('BUDHAND2'), url('http://fontsforweb.com/public/fonts/2074/BUDHAND2.ttf') format('truetype');
+    }
+body.cke_show_borders p {
+	font-family: 'BUDHAND2';
+    font-size: 30px;
+}
+.fontsforweb_fontid_2074 {
+	font-family: 'BUDHAND2' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */

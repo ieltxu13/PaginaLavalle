@@ -2,8 +2,7 @@
 $this->doctype(Zend_View_Helper_Doctype::XHTML1_RDFA);
 if ($this->noticia->getArchivoPrincipal()) {
 $this->headMeta()->setProperty('og:title',$this->noticia->getTitulo())
-        ->setProperty('og:image',$this->url(array('module'=>'default',
-    'controller'=>'recursosn','action'=>$this->noticia->getArchivoPrincipal()->getUrl())))
+        ->setProperty('og:image',$this->url(array('action' => $this->noticia->getArchivoPrincipal()->getUrl()),'recurso-noticia',true))
         ->setProperty('og:description',$this->noticia->getCopete())
         ->setProperty('og:url',$this->url());
 } else {
@@ -27,8 +26,7 @@ $this->headMeta()->setProperty('og:title',$this->noticia->getTitulo())
 <h3><?php echo $this->noticia->getCopete()?></h3>
 <?php if ($this->noticia->getArchivoPrincipal()) :?>
 <div>
-<img height="300" width="300" src="<?php echo $this->url(array('module'=>'default',
-    'controller'=>'recursosn','action'=>$this->noticia->getArchivoPrincipal()->getUrl())) ?>">
+<img height="300" width="300" src="<?php echo $this->url(array('action' => $this->noticia->getArchivoPrincipal()->getUrl()),'recurso-noticia',true) ?>">
 </div>
 <?php endif; ?>
 <p><?php echo $this->noticia->getContenido() ?></p>

@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'JPHST';
+    
+    	src: url('http://fontsforweb.com/public/fonts/448/JPHST.eot');
+	src: local('JPHST'), url('http://fontsforweb.com/public/fonts/448/JPHST.ttf') format('truetype');
+    }
+body.cke_show_borders p {
+	font-family: 'JPHST';
+    font-size: 30px;
+}
+.fontsforweb_fontid_448 {
+	font-family: 'JPHST' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */

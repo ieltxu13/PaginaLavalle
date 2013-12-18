@@ -4,17 +4,17 @@
             <?php foreach ($this->noticiasCarrousel as $index => $noticiaCarrousel) : ?>
                 <?php if ($index == 0): ?>
                     <div class="item active">
-                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiaCarrousel->getId())) ?>">
-                            <img src="<?php echo $this->url(array('module' => 'default', 'controller' => 'recursosn', 'action' => $noticiaCarrousel->getArchivoGrande()->getUrl())) ?>" alt="" class="imagenes-carousel">
+                        <a href="<?php echo $this->url(array('id' => $noticiaCarrousel->getId()),'noticia',true) ?>">
+                            <img src="<?php echo $this->url(array('action' => $noticiaCarrousel->getArchivoGrande()->getUrl()),'recurso-noticia',true) ?>" alt="" class="imagenes-carousel">
                             <div class="carousel-caption imagenes-texto">
                                 <h1><?php echo $noticiaCarrousel->getCopete() ?></h1>
                             </div>
                         </a>
-                    </div>
+                    </div>  
                 <?php else : ?>
                     <div class="item">
-                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiaCarrousel->getId())) ?>">
-                            <img src="<?php echo $this->url(array('module' => 'default', 'controller' => 'recursosn', 'action' => $noticiaCarrousel->getArchivoGrande()->getUrl())) ?>" alt="" class="imagenes-carousel">
+                        <a href="<?php echo $this->url(array('id' => $noticiaCarrousel->getId()),'noticia',true) ?>">
+                            <img src="<?php echo $this->url(array('action' => $noticiaCarrousel->getArchivoGrande()->getUrl()),'recurso-noticia',true) ?>" alt="" class="imagenes-carousel">
                             <div class="carousel-caption imagenes-texto">
                                 <h1><?php echo $noticiaCarrousel->getCopete() ?></h1>
                             </div>
@@ -73,10 +73,7 @@
                 <div class="aficheVentanillaOculto">
                     <div class="aficheVentanillaOculto">
                         <a href="<?php
-                        echo $this->url(array('module' => 'default',
-                            'controller' => 'secciones',
-                            'action' => 'ver',
-                            'id' => 14))
+                        echo $this->url(array('id' => 14),'subseccion',true);
                         ?>"><img src="<?php echo $this->baseUrl() . '/img/tramites.png' ?>" style="display: block; margin: 50 auto;"></a>
                     </div>
                 </div>
@@ -109,7 +106,9 @@
                     <a id="encuestaNo" encuesta="<?php echo $this->encuesta->getId() ?>" class="btn btn-danger btn-large btn-block">No</a>
                     </div>
                     </div>
+                    
                     <br>
+                    
                 </div>
                 <div class="resultados">
                 </div>
@@ -123,11 +122,10 @@ endif; ?>
                         <?php if ($index == 0 || $index == 3) : ?>
                 <div class="row-fluid">    
                     <div class="span4 noticiasPrincipales">
-                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+                        <a href="<?php echo $this->url(array('id' => $noticiap->getId()), 'noticia', true) ?>">
                             <?php if ($noticiap->getArchivoPrincipal()) : ?>
                                 <img height="300" width="300" src="<?php
-                                     echo $this->url(array('module' => 'default',
-                                         'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                     echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',null)
                                      ?>">
         <?php endif; ?>
                             <h5><?php echo $noticiap->getTitulo() ?></h5>
@@ -137,11 +135,10 @@ endif; ?>
                     </div>
                         <?php elseif ($index == 2 || $index == 5) : ?>   
                     <div class="span4 noticiasPrincipales">
-                        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+                        <a href="<?php echo $this->url(array('id' => $noticiap->getId()), 'noticia', true) ?>">
                             <?php if ($noticiap->getArchivoPrincipal()) : ?>
                                 <img height="300" width="300" src="<?php
-                                     echo $this->url(array('module' => 'default',
-                                         'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                     echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',null)
                                      ?>">
         <?php endif; ?>
                             <h5><?php echo $noticiap->getTitulo() ?></h5>
@@ -152,12 +149,11 @@ endif; ?>
                 </div>
                     <?php else: ?>
                 <div class="span4 noticiasPrincipales">
-                    <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'noticias', 'action' => 'noticia', 'id' => $noticiap->getId()), null, true) ?>">
+                    <a href="<?php echo $this->url(array('id' => $noticiap->getId()), 'noticia', true) ?>">
 
                         <?php if ($noticiap->getArchivoPrincipal()) : ?>
                             <img height="300" width="300" src="<?php
-                                 echo $this->url(array('module' => 'default',
-                                     'controller' => 'recursosn', 'action' => $noticiap->getArchivoPrincipal()->getUrl()))
+                                 echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',null)
                                  ?>">
         <?php endif; ?>
                         <h5><?php echo $noticiap->getTitulo() ?></h5>
@@ -175,9 +171,9 @@ endif; ?>
     <div class="banner-footer hidden-phone row-fluid"><embed id="eplb9b4e0b48ac0a875f_embed" name="eplb9b4e0b48ac0a875f" src="http://www.entrelineaslavalle.com.ar//banner//bannernov2012.swf" quality="autohigh" loop="true" allowscriptaccess="always" allowfullscreen="true" flashvars="clickTag=http%3A//ads.e-planning.net/ei/3/4cfd/HOME/INTERNOTA11%3Frnd%3D0.9425163103733212%26pb%3D9b4e0b48ac0a875f%26fi%3D9a75f13f3aa1096d" wmode="opaque" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100" border="0">
     </div><!--FIN DIV BANNER-->
 </div><!--FIN CONTENEDOR DE FILAS-->
-<script>
+<!--<script>
                    $('.nav').children().first().addClass('active');
                    $('#myCarousel').carousel({
                        interval: 5000
                    });
-</script>
+</script>-->

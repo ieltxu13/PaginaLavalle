@@ -1,7 +1,6 @@
 <?php
 
-class My_View_Helper_SeccionCostado extends Zend_View_Helper_Abstract
-{
+class My_View_Helper_SeccionCostado extends Zend_View_Helper_Abstract {
 
     /**
      * @var Bisna\Application\Container\DoctrineContainer
@@ -15,8 +14,7 @@ class My_View_Helper_SeccionCostado extends Zend_View_Helper_Abstract
      */
     protected $_em = null;
 
-    public function seccionCostado($index, $color, $ubicacion)
-    {
+    public function seccionCostado($index, $color, $ubicacion) {
         $seccionesEnSession = new Zend_Session_Namespace('secciones');
         switch ($ubicacion) {
             case 'izquierda':
@@ -38,13 +36,12 @@ class My_View_Helper_SeccionCostado extends Zend_View_Helper_Abstract
 
                 $menues .= '   <ul class="nav nav-tabs nav-stacked ' . $color . '">';
                 $menues .= '       <li class="titulo' . ucfirst($color) . '"><a href="">' . $seccionesEnSession->seccionesIzq[$index]->getNombre() . '</a></li>';
-                foreach ($seccionesEnSession->seccionesIzq[$index]->getSubSecciones() as $subseccion)
-                {
-                    //$menues .= '       <li><a href="/PaginaLavalle/public/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
-                    if(!$subseccion->getNombre() === 'Foro Huanacache') {
-                    $menues .= '       <li><a href="/public/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
+                foreach ($seccionesEnSession->seccionesIzq[$index]->getSubSecciones() as $subseccion) {
+                    if ($subseccion->getNombre() === 'Foro Huanacache') {
+                        $menues .= '       <li><a href="' . strip_tags($subseccion->getContenido()) . '">' . $subseccion->getNombre() . '</a></li>';
                     } else {
-                    $menues .= '       <li><a href="'. strip_tags($subseccion->getContenido()) . '">' . $subseccion->getNombre() . '</a></li>';   
+                        //$menues .= '       <li><a href="/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
+                        $menues .= '       <li><a href="'.$this->view->url(array('id'=> $subseccion->getId()),'subseccion',true)  . '">' . $subseccion->getNombre() . '</a></li>';
                     }
                 }
                 $menues .='    </ul>';
@@ -72,18 +69,16 @@ class My_View_Helper_SeccionCostado extends Zend_View_Helper_Abstract
 
                 //Comportamiento distinto para la sección de links ***
                 if ($seccionesEnSession->seccionesDer[$index]->getNombre() == 'LINKS') {
-                    foreach ($seccionesEnSession->seccionesDer[$index]->getSubSecciones() as $subseccion)
-                    {
+                    foreach ($seccionesEnSession->seccionesDer[$index]->getSubSecciones() as $subseccion) {
                         //$menues .= '       <li><a href="'. $subseccion->getContenido() . '">' . $subseccion->getNombre() . '</a></li>';
-                        $menues .= '       <li><a href="'. strip_tags($subseccion->getContenido()) . '">' . $subseccion->getNombre() . '</a></li>';
+                        $menues .= '       <li><a href="' . strip_tags($subseccion->getContenido()) . '">' . $subseccion->getNombre() . '</a></li>';
                     }
                 } else {
 
                     //***
-                    foreach ($seccionesEnSession->seccionesDer[$index]->getSubSecciones() as $subseccion)
-                    {
+                    foreach ($seccionesEnSession->seccionesDer[$index]->getSubSecciones() as $subseccion) {
                         //$menues .= '       <li><a href="/PaginaLavalle/public/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
-                        $menues .= '       <li><a href="/public/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
+                        $menues .= '       <li><a href="/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
                     }
                 }
                 $menues .='    </ul>';

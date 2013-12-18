@@ -74,6 +74,20 @@ body{
 .contenidoCentral{
     border-left: 1px solid cornflowerblue;
     border-right: 1px solid cornflowerblue;
+    background-color: #e2e9f7;
+}
+
+#container{
+    border-top: 1px solid white;
+   
+}
+.todo{
+    margin-top: -10px; 
+}
+
+.filaNavBar {
+    margin-bottom: 0;
+    position: absolute;
 }
 
 .seccion{
@@ -178,6 +192,14 @@ body{
     -moz-border-radius-topleft : 5px;
 }
 
+.carousel-inner > .item > a {
+    text-decoration: none;
+}
+
+.carousel-inner > .item > a:hover {
+    text-decoration: none;
+}
+
 .item .container {
     width: auto;
 }
@@ -197,7 +219,13 @@ body{
 #flotante2 {
     width:inherit;
 }
-
+#flotante1, #flotante2 {
+-moz-transition: all 0.3s ease-out;  /* FF4+ */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.3s ease-out;  /* IE10 */
+    transition: all 0.3s ease-out;  
+    }
 .imagenes-carousel{
     -webkit-border-radius: 5px 5px 5px 5px;  
     -ms-border-radius: 5px;
@@ -290,6 +318,22 @@ imagenes-noticia{
 .aficheVentanilla:hover .aficheVentanillaImagen{
     right:100%;
     transition: right 500ms;
+}
+
+.hcd > li {
+    background-color: #F79F35;
+}
+
+.hcd > li a:hover {
+    background-color: #66A63C
+}
+
+.nav-tabs > .active > a {
+    background-color: #e2e9f7
+}
+
+.nav-tabs .hcd > li > a {
+    color: white;
 }
 
 
