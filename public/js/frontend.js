@@ -51,7 +51,7 @@ function activarLinkMenu(seccion){
 
 function crearPdf(id){
     //var url = 'http://localhost/PaginaLavalle/public/licitaciones/pdf';
-    var url = 'http://mendozalavalle.com.ar/public/licitaciones/pdf/';
+    var url = 'http://www.lavallemendoza.gov.ar/public/licitaciones/pdf/';
     var data = {};
     
     data['id'] = id;
@@ -66,7 +66,7 @@ function crearPdf(id){
    );
    
    var htmlLink = $('[name="'+id+'"]').parent().parent().html();
-   $('[name="'+id+'"]').parent().parent().html('<td><img id="loader" src="http://mendozalavalle.com.ar/img/loader.gif">\n\
+   $('[name="'+id+'"]').parent().parent().html('<td><img id="loader" src="http://www.lavallemendoza.gov.ar/img/loader.gif">\n\
 </td><td><h3>Cargando Certificado</h3></td>\n\
 <td><p>esto puede demorar unos segundos..</p></td>');
    
@@ -81,7 +81,7 @@ function abrirPdf(response,htmlLink,id) {
         alert('ha ocurrido un error, recargue la página e intentolo de nuevo');
     } else {
     $('#loader').parent().parent().html(htmlLink);
-    window.open('http://mendozalavalle.com.ar/'+response['pdf']);
+    window.open('http://www.lavallemendoza.gov.ar/'+response['pdf']);
     //window.open('http://localhost/PaginaLavalle/public/'+response['pdf']);    
     }
     
@@ -89,7 +89,7 @@ function abrirPdf(response,htmlLink,id) {
 
 function acuerdo3949() {
     //var url = 'http://paginalavalle/acuerdo3949/'
-    var url = 'http://mendozalavalle.com.ar/acuerdo3949';
+    var url = 'http://www.lavallemendoza.gov.ar/acuerdo3949';
    var data = {};
    
    data['acuerdo'] = $("#acuerdo option:selected").val();

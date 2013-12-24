@@ -39,7 +39,7 @@ class Administracion_ColectivosController extends Zend_Controller_Action
         $form = new Administracion_Form_HorarioColectivoForm();
         $this->view->form = $form;
         
-        $querylineas = $this->_em->createQuery('Select l from My\Entity\LineaColectivo l');
+        $querylineas = $this->_em->createQuery('Select l from My\Entity\LineaColectivo l ORDER BY l.linea ASC');
         
         $lineas = $querylineas->getResult();
         

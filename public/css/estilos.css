@@ -122,6 +122,10 @@ body{
     color: #666;
 }
 
+.azul .tituloAzul a:hover {
+    color: white;
+}
+
 .azul .tituloAzul a,.azul .tituloAzul a:hover{
     background-color: #1D53A2;
 }
@@ -138,6 +142,10 @@ body{
     color: #666;
 }
 
+.naranja .tituloNaranja a:hover {
+    color: white;
+}
+
 .naranja .tituloNaranja a,.naranja .tituloNaranja a:hover{
     background-color: #CA6C18;   
 }
@@ -152,6 +160,9 @@ body{
 
 .verde > li > a:hover{
     color: #666;
+}
+.verde .tituloVerde a:hover{
+ color:white;   
 }
 
 .verde .tituloVerde a,.verde .tituloVerde a:hover{

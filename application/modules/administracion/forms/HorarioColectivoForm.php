@@ -39,6 +39,12 @@ class Administracion_Form_HorarioColectivoForm extends Zend_Form
         
         $desde = new Zend_Form_Element_Select('desde');
         $desde->setMultiOptions(array(
+            'ASUNCIÓN' => 'ASUNCIÓN',
+            'EL 15' => 'EL 15',
+            'GUSTAVO ANDRÉ' => 'GUSTAVO ANDRÉ',
+            'COSTA' => 'COSTA',
+            'LAVALLE' => 'LAVALLE',
+            'MENDOZA' => 'MENDOZA',
             'KM 56' => 'KM 56',
             'JOCOLI' => 'JOCOLI',
             'OSC MENDOZA' => 'OSC MENDOZA',
@@ -50,12 +56,11 @@ class Administracion_Form_HorarioColectivoForm extends Zend_Form
             'COLONIA ITALIA' => 'COLONIA ITALIA',
             'B° LA COLMENA' => 'B° LA COLMENA',
             'SALVATIERRA' => 'SALVATIERRA',
-            'LAVALLE' => 'LAVALLE',
             'VERJEL' => 'VERJEL',
             'CRUCE' => 'CRUCE',
             'PASTAL' => 'PASTAL',
             'BORBOLLON' => 'BORBOLLON',
-            'MENDOZA' => 'MENDOZA'
+            
         ))
                 ->setAttribs(array('class' => 'input-xxlarge'));
         

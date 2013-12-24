@@ -1,28 +1,24 @@
 $(function() {
-        $('#encuestaSi').load(function(){
-           $(this). on('click', function(e) {
-            e.preventDefault();
-            var encuesta = $(this).attr('encuesta');
-            registrarVoto(encuesta, true); 
-        });
-            
-
-        });
-
-        $('#encuestaNo').load(function(){
-           $(this).on('click', function(e) {
-            e.preventDefault();
-            var encuesta = $(this).attr('encuesta');
-            registrarVoto(encuesta, false);
-
-        });
+    $('#encuestaSi').on('click', function(e) {
+        e.preventDefault();
+        var encuesta = $(this).attr('encuesta');
+        registrarVoto(encuesta, true);
     });
-    });
+
+
+});
+
+$('#encuestaNo').on('click', function(e) {
+    e.preventDefault();
+    var encuesta = $(this).attr('encuesta');
+    registrarVoto(encuesta, false);
+
+});
 
 function registrarVoto(encuesta, voto) {
 
     //var url = 'http://localhost/PaginaLavalle/public/';
-    var url = 'http://mendozalavalle.com.ar/'
+    var url = 'http://www.lavallemendoza.gov.ar/'
     var data = {};
 
     data['voto'] = voto;
