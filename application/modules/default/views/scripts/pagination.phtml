@@ -4,7 +4,7 @@
         <ul>
             <li>
             <?php if (isset($this->previous)): ?>
-                    <a href="<?php echo $this->url(array('pagina' => $this->first),'todas-las-noticias',true); ?>">Primera</a>
+                    <a href="<?php echo $this->url(array('pagina' => $this->first),'historial',true); ?>">Primera</a>
                 <?php else: ?>
                     <span class="disabled">Primera</span>
             <?php endif; ?>
@@ -12,7 +12,7 @@
             <!-- Previous page link -->
             <li>
                 <?php if (isset($this->previous)): ?>
-                    <a href="<?php echo $this->url(array('pagina' => $this->previous),'todas-las-noticias',true); ?>">&lt; Anterior</a>
+                    <a href="<?php echo $this->url(array('pagina' => $this->previous),'historial',true); ?>">&lt; Anterior</a>
                 <?php else: ?>
                     <span class="disabled">&lt; Anterior</span>
                 <?php endif; ?>
@@ -22,14 +22,14 @@
                     <?php if ($this->current == $page): ?>
                         <span class="muted"><?php echo $page ?></span>
                     <?php else : ?>
-                        <a href="<?php echo $this->url(array('pagina' => $page),'todas-las-noticias',true) ?>" id="pagina" pagina="<?php echo $page ?>"><?php echo $page ?></a>   
+                        <a href="<?php echo $this->url(array('pagina' => $page),'historial',true) ?>" id="pagina" pagina="<?php echo $page ?>"><?php echo $page ?></a>   
                     <?php endif; ?>
                 </li>
                 <?php endforeach; ?>
                 <!-- Next page link -->
                 <li>
                 <?php if (isset($this->next)): ?>
-                    <a href="<?php echo $this->url(array('pagina' => $this->next),'todas-las-noticias',true); ?>">Siguiente &gt;</a>
+                    <a href="<?php echo $this->url(array('pagina' => $this->next),'historial',true); ?>">Siguiente &gt;</a>
                 <?php else: ?>
                     <span class="disabled">Siguiente &gt;</span>
                 <?php endif; ?>

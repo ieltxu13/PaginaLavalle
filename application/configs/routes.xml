@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configdata>
+    <routes>
+        <inicio route="/">
+            <defaults module="default" controller="index" action="index"></defaults>
+        </inicio>
+        <historia route="/historia">
+            <defaults module="default" controller="secciones" action="ver" id="1"></defaults>
+        </historia>
+        <ubicacion route="/ubicacion">
+            <defaults module="default" controller="secciones" action="ver" id="2"></defaults>
+        </ubicacion>
+        <economia route="/economia">
+            <defaults module="default" controller="secciones" action="ver" id="3"></defaults>
+        </economia>
+        <galeria route="/galeria">
+            <defaults module="default" controller="secciones" action="galeria"></defaults>
+        </galeria>
+        <intendencia route="/intendencia">
+            <defaults module="default" controller="secciones" action="ver" id="5"></defaults>
+        </intendencia>
+        <asesoria route="/asesoria">
+            <defaults module="default" controller="secciones" action="ver" id="6"></defaults>
+        </asesoria>
+        <secretaria-de-gobierno route="/secretaria-de-gobierno">
+            <defaults module="default" controller="secciones" action="ver" id="7"></defaults>
+        </secretaria-de-gobierno>
+        <soysp route="/soysp">
+            <defaults module="default" controller="secciones" action="ver" id="8"></defaults>
+        </soysp>
+        <hcd route="/hcd">
+            <defaults module="default" controller="secciones" action="hcd"></defaults>
+        </hcd>
+        <interes route="/interes">
+            <defaults module="default" controller="secciones" action="ver" id="10"></defaults>
+        </interes>
+        <alojamiento route="/alojamiento">
+            <defaults module="default" controller="secciones" action="ver" id="11"></defaults>
+        </alojamiento>
+        <gastronomia route="/gastronomia">
+            <defaults module="default" controller="secciones" action="ver" id="12"></defaults>
+        </gastronomia>
+        <contacto route="/contacto">
+            <defaults module="default" controller="secciones" action="ver" id="13"></defaults>
+        </contacto>
+        <tramites route="/tramites">
+            <defaults module="default" controller="secciones" action="ver" id="14"></defaults>
+        </tramites>
+        <licitaciones route="/licitaciones">
+            <defaults module="default" controller="licitaciones" action="index"></defaults>
+        </licitaciones>
+        <interaccion route="/interaccion">
+            <defaults module="default" controller="mensajes" action="nuevo-mensaje"></defaults>
+        </interaccion>
+        <novedades route="/novedades">
+            <defaults module="default" controller="secciones" action="novedades"></defaults>
+        </novedades>
+        <historial route="/historial/:pagina">
+            <defaults module="default" controller="noticias" action="todas" pagina="1"></defaults>
+        </historial>
+        <crecemos route="/crecemos">
+            <defaults module="default" controller="secciones" action="revista-crecemos"></defaults>
+        </crecemos>
+        <ceil route="/ceil">
+            <defaults module="default" controller="secciones" action="ver" id="21"></defaults>
+        </ceil>
+        <casa-de-la-cultura route="/casa-de-la-cultura">
+            <defaults module="default" controller="secciones" action="ver" id="22"></defaults>
+        </casa-de-la-cultura>
+        <vu route="/vu">
+            <defaults module="default" controller="secciones" action="ver" id="23"></defaults>
+        </vu>
+        <jardines route="/jardines">
+            <defaults module="default" controller="secciones" action="ver" id="24"></defaults>
+        </jardines>
+        <delegaciones route="/delegaciones">
+            <defaults module="default" controller="secciones" action="ver" id="25"></defaults>
+        </delegaciones>
+        <cdr route="/cdr">
+            <defaults module="default" controller="secciones" action="ver" id="26"></defaults>
+        </cdr>
+        <colectivos route="/colectivos">
+            <defaults module="default" controller="secciones" action="ver" id="27"></defaults>
+        </colectivos>
+        <acuerdo route="/acuerdo3949">
+            <defaults module="default" controller="secciones" action="acuerdo"></defaults>
+        </acuerdo>
+        <agenda route="/agenda">
+            <defaults module="default" controller="secciones" action="ver" id="32"></defaults>
+        </agenda>
+        <noticia route="/noticia/:id">
+            <defaults module="default" controller="noticias" action="noticia" id="null"></defaults>
+        </noticia>
+        <recurso-noticia route="/imagen/:action">
+            <defaults module="default" controller="recursosn"></defaults>
+        </recurso-noticia>
+        <recurso-seccion route="/imagen-seccion/:action">
+            <defaults module="default" controller="recursoss"></defaults>
+        </recurso-seccion>
+        <recurso-galeria route="/imagen-galeria/:action">
+            <defaults module="default" controller="recursosg"></defaults>
+        </recurso-galeria>
+        <recurso-vendimia route="/imagen-vendimia/:action">
+            <defaults module="default" controller="recursosv"></defaults>
+        </recurso-vendimia>
+        <vendimia route="/vendimia">
+            <defaults module="default" controller="secciones" action="vendimia"></defaults>
+        </vendimia>
+    </routes>
+</configdata>

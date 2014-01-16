@@ -1,27 +1,34 @@
 <?php
 
-class Administracion_Form_SubseccionForm extends Zend_Form
-{
+class Administracion_Form_SubseccionForm extends Zend_Form {
 
-    public function init()
-    {
+    public function init() {
         $this->addPrefixPath('My_Form_Decorator', 'My/Form/Decorator/', 'decorator');
         $this->setName('Subseccion');
         $id = new Zend_Form_Element_Hidden('id');
+
         $nombre = new Zend_Form_Element_Text('nombre');
-        $nombre->setLabel('Titulo')->setAttribs(array('class'=> 'input-xxlarge'));
+        $nombre->setLabel('Titulo')->setAttribs(array('class' => 'input-xxlarge'));
+
+        $alias = new Zend_Form_Element_Text('alias');
+        $alias->setLabel('Alias')->setAttribs(array('class' => 'input-xxlarge'))
+                ->addFilters(array('StringTrim', 'StripTags'));
 
         $contenido = new Zend_Form_Element_Textarea('contenido');
-        $contenido->setLabel('Contenido')->setAttribs(array('class'=> 'input-xxlarge',
-                                                            'rows'=>10));
-        
+        $contenido->setLabel('Contenido')->setAttribs(array('class' => 'input-xxlarge',
+            'rows' => 10));
+
         $seccionPadre = new Zend_Form_Element_Multiselect('seccionesPadre');
         $seccionPadre->setLabel('Seccion Padre')->setRequired();
-      
+
         $submit = new Zend_Form_Element_Submit('Guardar');
-        
-        $this->addElements(array($id,$nombre,$contenido,$seccionPadre,$submit));
-        
+
+        if (Zend_Auth::getInstance()->getIdentity()->getRol() === 'administrador') {
+            $this->addElements(array($id, $nombre,$alias, $contenido, $seccionPadre, $submit));
+        } else {
+            $this->addElements(array($id, $nombre, $contenido, $seccionPadre, $submit));
+        }
+
         $this->setElementDecorators(array(
             'ViewHelper',
             //'Errors',
@@ -44,10 +51,6 @@ class Administracion_Form_SubseccionForm extends Zend_Form
                     "Form"
                 )
         );
-                
     }
-    
-
 
 }
-

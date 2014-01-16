@@ -9,7 +9,17 @@ $(function(){
         acuerdo3949();
     });
     
-
+    $('.votoVendimia').on('click', function(e){
+        e.preventDefault();
+        var candidata = $(this).attr('candidata');
+        registrarVotoVendimia(candidata);
+        $(this).addClass('hidden');
+        var votos = $("#votos"+candidata).html();
+        $("#votos"+candidata).html(parseInt(votos) + 1);
+        $.cookie('votoVendimia' + candidata, 'votada', {expires: 30});
+        
+        
+    });
 
     
 });
@@ -111,3 +121,22 @@ function acuerdo3949() {
         'json'
     );
 }
+
+function registrarVotoVendimia(candidata) {
+
+    //var url = 'http://paginalavalle/vendimia';
+    var url = 'http://www.lavallemendoza.gov.ar/vendimia'
+    var data = {};
+
+    data['candidata'] = candidata;
+
+    $.post(
+            url,
+            data,
+            function(response) {
+                
+            },
+            'json'
+            );
+}
+

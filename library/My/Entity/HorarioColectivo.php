@@ -65,6 +65,10 @@ class HorarioColectivo {
         $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
+    public function getId() {
+        return $this->id;
+    }
+    
     public function getTrayecto() {
         return $this->trayecto;
     }
@@ -78,7 +82,7 @@ class HorarioColectivo {
     }
     
     public function getHorario() {
-        return date_format($this->fecha, 'H:i:s');
+        return date_format($this->horario, 'H:i:s');
     }
 
     public function getDias() {

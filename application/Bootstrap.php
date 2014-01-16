@@ -21,7 +21,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->_acl = new Application_Model_Acl();
         $fc = Zend_Controller_Front::getInstance();
         $fc->registerPlugin(new My_Controller_Plugin_AssetsGrabber());
-        $fc->registerPlugin(new My_Controller_Plugin_SeccionesCheck());
+        //$fc->registerPlugin(new My_Controller_Plugin_SeccionesCheck());
         $fc->registerPlugin(new My_Controller_Plugin_Modular_ErrorController());
         $fc->registerPlugin(new My_Controller_Plugin_AccessCheck($this->_acl));
     }
@@ -54,6 +54,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $frontControlller = Zend_Controller_Front::getInstance();
         $router = $frontControlller->getRouter();
         
+        $config = new Zend_Config_Xml(APPLICATION_PATH . '/configs/routes.xml');
+        $router->addConfig($config->routes);
+        /** RUTAS
         $router->addRoute(
                 'subseccion',
                 new Zend_Controller_Router_Route('secciones/ver/:id', array(
@@ -65,6 +68,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 array('id' => '\d+')
                 )
                 );
+        
         $router->addRoute(
                 'noticia',
                 new Zend_Controller_Router_Route('noticia/:id', array(
@@ -125,6 +129,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 array('pagina' => '\d+')
                         )
                 );
+        
+        
+        FIN RUTAS SECCIONES **/
+        
+
     }
 }
 

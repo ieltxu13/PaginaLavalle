@@ -45,7 +45,7 @@ class My_View_Helper_MenuPrincipal extends Zend_View_Helper_Abstract
             $menues .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$seccion->getNombre().'</a><ul class="dropdown-menu">';
             if($seccion->getSubSecciones()->count() != 0){
                 foreach($seccion->getSubSecciones() as $subseccion) {
-                    $menues .= '<li><a href="'.$this->view->url(array('id'=>$subseccion->getId()),'subseccion',true).'">'.$subseccion->getNombre().'</a></li>';
+                    $menues .= '<li><a href="'.$this->view->url(array(),$subseccion->getAlias(),true).'">'.$subseccion->getNombre().'</a></li>';
                     //$menues .= '<li><a href="/secciones/ver/id/'.$subseccion->getId().'">'.$subseccion->getNombre().'</a></li>';
                     //$menues .= '<li><a href="/PaginaLavalle/secciones/ver/id/'.$subseccion->getId().'">'.$subseccion->getNombre().'</a></li>';
                 }

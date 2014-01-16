@@ -1,0 +1,43 @@
+<br /><br />
+<div class="well-large">
+    <h1>Imagenes de la Galería Vendimial</h1>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid visible-desktop">
+        <div class="span8">
+            
+        </div>
+        <div class="span2">
+            <h3>En Galería</h3>
+        </div>
+    </div>
+<?php foreach ($this->imagenes as $imagen) : ?>
+    <div class="row-fluid">
+        <div class="span4">
+            <img src="<?php echo $this->url(array('action'=>$imagen->getUrl()),'recurso-vendimia',true)?>" heigth="150px" width="150px" class="img-polaroid">
+        </div>
+        <div class="span4">
+            <h5><?php echo $imagen->getDescripcion() ?></h5>
+            <p><?php echo $imagen->getUrl()?></p>
+            <a href="<?php echo $this->url(array('module'=>'administracion',
+    'controller'=>'imagenes','action'=>'modificar-descripcion','id'=>$imagen->getId(),'vendimia'=>true),null,true)?>">Modificar Descripcion</a>
+        </div>
+        <div class="span2">
+            <?php if($imagen->getEnGaleria() == true) :?>
+                <img src="<?php echo $this->baseUrl() . '/img/si64.png'?>">
+                <a href="<?php echo $this->url(array('module'=>'administracion',
+                    'controller'=>'imagenes','action'=>'quitardegaleria','id'=>$imagen->getId(),'vendimia'=>true),null,true)?>"><p>Quitar</p></a>
+            <?php else: ?>
+                <img src="<?php echo $this->baseUrl() . '/img/no64.png'?>">
+                <a href="<?php echo $this->url(array('module'=>'administracion',
+    'controller'=>'imagenes','action'=>'agregaragaleria','id'=>$imagen->getId(),'vendimia'=>true),null,true)?>">Agregar</a>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
+<a class="btn btn-primary" href="<?php echo $this->url(array('module'=>'administracion',
+                    'controller'=>'imagenes','action'=>'agregarimagen','vendimia'=>true),null,true)?>"><p>Agregar Nueva</p></a>
+<?php
+echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml')
+?>

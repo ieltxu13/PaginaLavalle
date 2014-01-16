@@ -1,3 +1,46 @@
 <br /><br />
-<a  class="btn btn-primary" href="<?php echo $this->url(array('module'=>'administracion',
-    'controller'=>'colectivos','action'=>'nuevo-horario'))?>">Nuevo Horario</a>
+<a  class="btn btn-primary" href="<?php
+echo $this->url(array('module' => 'administracion',
+    'controller' => 'colectivos', 'action' => 'nuevo-horario'))
+?>">Nuevo Horario</a>
+
+<br /><br />
+<a  class="btn btn-primary" href="<?php
+    echo $this->url(array('module' => 'administracion',
+        'controller' => 'colectivos', 'action' => 'todos'))
+    ?>">Listar horario</a>
+
+<div class="accordion" id="accordion">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#filtrosContainer">
+                Filtros
+            </a>
+        </div>
+        <div id="filtrosContainer" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <?php echo $this->form; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Linea</th>
+        <th>Recorrido</th>
+        <th>Desde</th>
+        <th>Horario</th>
+        <th>Horario</th>
+    </tr>
+    <?php        foreach ($this->horarios as $horario) : ?>
+    <tr>
+        <td><?php echo $horario->getLineas()->first()->getLinea() ?></td>
+        <td><?php echo $horario->getTrayecto() ?></td>
+        <td><?php echo $horario->getDesde() ?></td>
+        <td><input type="text" name="editarhorario" id="<?php echo $horario->getId()?>" value="<?php echo $horario->getHorario()?>"/></td>
+        <td><a class="btn btn-primary" horario="<?php echo $horario->getId()?>" name="botoneditarhorario">Modificar</a></td>
+    </tr>
+    <?php        endforeach; ?>
+</table>
+<script type="text/javascript" src="/js/horarios.js"></script>

@@ -6,11 +6,13 @@ class Administracion_ColectivosController extends Zend_Controller_Action
     /**
      * @var Bisna\Application\Container\DoctrineContainer
      *
+     *
      */
     protected $_doctrineContainer = null;
 
     /**
      * @var Doctrine\ORM\EntityManager
+     *
      *
      */
     protected $_em = null;
@@ -25,7 +27,42 @@ class Administracion_ColectivosController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $form = new Administracion_Form_FiltroHorariosForm();
+        $this->view->form = $form;
+        
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getPost();
+            var_dump($this->getRequest()->getParams());
+            $linea = $this->getParam('lineas');
+            $trayecto = $this->getParam('trayecto');
+            $desde = $this->_getParam('desde');
+            
+            $qb = $this->_em->createQueryBuilder();
+            $qb->select('h,l')
+                ->from('My\Entity\HorarioColectivo','h')
+                ->leftJoin('h.lineas', 'l');
+            $qb->where('h.desde = :desde')
+                    ->setParameter('desde', $desde);
+            
+            if($linea != 'Todos') {
+                $qb->andWhere('l.linea = :linea')
+                        ->setParameter('linea', $linea);
+            }
+            if($trayecto != 'Todos') {
+                $qb->andWhere('h.trayecto = :trayecto')
+                        ->setParameter('trayecto', $trayecto);
+            }
+            $query = $qb->getQuery();
+            $horarios = $query->getResult();
+            
+            $this->view->horarios = $horarios;
+                    
+        }else {
+            $query = $this->_em->createQuery('Select h from My\Entity\HorarioColectivo h');
+        $horarios = $query->getResult();
+        $this->view->horarios = $horarios;
+        }
+        
     }
 
     public function nuevaLineaAction()
@@ -72,8 +109,29 @@ class Administracion_ColectivosController extends Zend_Controller_Action
         }
     }
 
+    public function modificarHoraAction()
+    {
+        if ($this->_request->isXmlHttpRequest()) {
+
+            $this->_helper->layout()->disableLayout();
+            $this->_helper->viewRenderer->setNoRender(true);
+
+            $id = $this->_getParam('id');
+            $valor = $this->getParam('valor');
+            
+            $horario = $this->_em->find('My\Entity\HorarioColectivo',$id);
+            $horario->setHorario($valor);
+            
+            $this->_em->flush();
+            header('Content-Type: application/json;charset=utf-8_spanish_ci');
+            echo Zend_Json::encode($valor);
+        }
+    }
+
 
 }
+
+
 
 
 

@@ -41,14 +41,15 @@ class Application_Model_Acl extends Zend_Acl
              ->addResource(new Zend_Acl_Resource('administracion:colectivos'),'administracion')
              ->addResource(new Zend_Acl_Resource('administracion:acuerdo'),'administracion')
              ->addResource(new Zend_Acl_Resource('administracion:hcd'),'administracion')
-             ->addResource(new Zend_Acl_Resource('administracion:revista-crecemos'),'administracion');
+             ->addResource(new Zend_Acl_Resource('administracion:revista-crecemos'),'administracion')
+             ->addResource(new Zend_Acl_Resource('administracion:vendimia'),'administracion');
         
         $this->allow('invitado', 'default:index','index')
              ->allow('invitado', 'default:error','error')
              ->allow('invitado', 'default:mensajes','nuevo-mensaje')
              ->allow('invitado', 'administracion:error','error')
              ->allow('invitado', 'default:noticias',array('index','noticia','todas'))
-             ->allow('invitado', 'default:secciones',array('index','ver','galeria','novedades','hcd','acuerdo','revista-crecemos'))
+             ->allow('invitado', 'default:secciones',array('index','ver','galeria','novedades','hcd','acuerdo','revista-crecemos','vendimia'))
              ->allow('invitado', 'administracion:index','index')
              ->allow('invitado', 'default:licitaciones',array('index','pdf'));
         
@@ -62,12 +63,14 @@ class Application_Model_Acl extends Zend_Acl
              ->allow('prensa', 'administracion:mensajes',array('index','leer'))
              ->allow('prensa', 'administracion:noticias','dropdown')
              ->allow('prensa', 'administracion:encuestas',array('index','nueva','activar','ver','desactivar'))
-             ->allow('prensa', 'administracion:imagenes',array('dropdown','index','agregaragaleria','quitardegaleria','galeria','agregarimagen','modificar-descripcion'))   
+             ->allow('prensa', 'administracion:imagenes',array('dropdown','index','agregaragaleria','quitardegaleria',
+                 'galeria','agregarimagen','modificar-descripcion','galeria-vendimia','administrar-galeria-vendimia'))   
              ->allow('prensa', 'administracion:secciones',array('index','listasecciones','listasubsecciones','editarsubseccion','dropdown',
-                 'ver','imagenes','seleccionarimagin','seleccionar','quitarimagen','editarseccion'))
+                 'ver','imagenes','seleccionarimagen','seleccionar','quitarimagen','editarseccion'))
              ->allow('prensa','administracion:acuerdo',array('index','subir-documentos'))
              ->allow('prensa','administracion:hcd',array('index','subir-documentos'))
              ->allow('prensa','administracion:revista-crecemos',array('index','subir-documentos'))
+             ->allow('prensa','administracion:vendimia',array('index','nueva','imagen','editar'))
              ->deny('prensa', 'administracion:index','index');
              
         
@@ -76,7 +79,7 @@ class Application_Model_Acl extends Zend_Acl
             'ver','imagenes','seleccionarimagen','seleccionar','quitarimagen','editarseccion'))
             ->allow('administrador','administracion:usuarios',array('index','dropdown'))
             ->allow('administrador','administracion:acuerdo',array('index','subir-documentos'))
-            ->allow('administrador','administracion:colectivos',array('index','nueva-linea','nuevo-horario'));
+            ->allow('administrador','administracion:colectivos',array('index','nueva-linea','nuevo-horario','modificar-hora'));
         $this->allow('administrador','administracion:index',array('prueba-widget-encuesta'))
              ->allow('administrador','administracion:licitaciones',array('index','nueva','editar',
                  'cerrar','ver','activar','desactivar','pdf'));

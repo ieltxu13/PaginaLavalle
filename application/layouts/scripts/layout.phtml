@@ -7,7 +7,7 @@
         <?php
         $a = '';
         echo $this->minifyHeadLink()
-                ->prependStylesheet($this->baseUrl() . $a . '/lights/luces.css')
+//                ->prependStylesheet($this->baseUrl() . $a . '/lights/luces.css')
                 ->prependStylesheet($this->baseUrl() . $a . '/css/estilos.css')
                 ->prependStylesheet($this->baseUrl() . $a . '/css/bootstrap-responsive.min.css')
                 //->prependStylesheet($this->baseUrl() . $a.'/css/responsive.css')
@@ -21,7 +21,8 @@
 
         echo $this->headMeta();
         ?>
-        <script type="text/javascript" src="/min/?f=/public/js/jquery/js/jquery-1.10.2.min.js,/public/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/min/?f=/js/jquery/js/jquery-1.10.2.min.js,/js/bootstrap.js"></script>
+        <!--<script type="text/javascript" src="/min/?f=/public/js/jquery/js/jquery-1.10.2.min.js,/public/js/bootstrap.js"></script>-->
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -39,9 +40,9 @@
 
     </head>
     <body>
-        <div id="lights" class="visible-desktop">
-            <!-- lights go here -->
-        </div>
+<!--        <div id="lights" class="visible-desktop">
+             lights go here 
+        </div>-->
         <div class="header">
 
             <div class="imagen-logo">
@@ -91,7 +92,7 @@
 
                         <?php echo $this->seccionCostado(0, 'verde', 'derecha'); ?>
                         <ul class="nav nav-tabs nav-stacked azul">
-                            <li><a href="/secciones/ver/9">H C D</a></li>
+                            <li><a href="<?php echo $this->url(array(),'hcd',true)?>">H C D</a></li>
                         </ul>
                         <br>
                         <div id="experiment">
@@ -102,7 +103,7 @@
                                 <div class="face two">
                                     <br>
                                     <p style="text-align: center">HORARIO DE VERANO</p>
-                                    <p style="text-align: center">DE 8 A 13 HS</p>
+                                    <p style="text-align: center">DE 7:30 A 13:30 HS</p>
                                 </div>
                                 <div class="face three">
                                     <img src="<?php echo $this->baseUrl() . '/css/cubo/images/logoVentanilla.png"' ?>" />    
@@ -129,9 +130,9 @@
                     <h3 id="farmaciaLabel">Farmacia de Turno</h3>
                 </div>
                 <div class="modal-body">
-                    <center><h1>Farmacia Santa Rita</h1></center>
-                    <center><p>Ubicada en: Simon Bolivar 181</p></center>
-                    <center><p>Teléfono: 4941009</p></center>
+                    <center><h1>FARMACIA LAVALLE</h1></center>
+                    <center><p></p></center>
+                    <center><p></p></center>
                     <br>
                     <center><p>a partir de las 12 hs..!</p></center>
                 </div>
@@ -146,16 +147,16 @@
                 ->appendFile($this->baseUrl() . $a . '/js/jquery/cookie/jquery.cookie.js')
                 ->appendFile($this->baseUrl() . $a . '/js/frontend.js')
                 ->appendFile($this->baseUrl() . $a . '/js/encuesta.js')
-                ->appendFile($this->baseUrl() . $a . '/js/yuiloader-min.js')
-                ->appendFile($this->baseUrl() . $a . '/js/yahoo-dom-event.min.js')
-                ->appendFile($this->baseUrl() . $a . '/lights/soundmanager2-nodebug-jsmin.js')
-                ->appendFile($this->baseUrl() . $a . '/js/animation-min.js')
-                ->appendFile($this->baseUrl() . $a . '/lights/christmaslights.js');
-        echo $this->InlineScript()
-                ->appendScript('
-                        var urlBase = "' . $this->baseUrl() . '/lights/";
-                        soundManager.url = "' . $this->baseUrl() . '/lights/";
-                        ')
+//                ->appendFile($this->baseUrl() . $a . '/js/yuiloader-min.js')
+//                ->appendFile($this->baseUrl() . $a . '/js/yahoo-dom-event.min.js')
+//                ->appendFile($this->baseUrl() . $a . '/lights/soundmanager2-nodebug-jsmin.js')
+//                ->appendFile($this->baseUrl() . $a . '/js/animation-min.js')
+//                ->appendFile($this->baseUrl() . $a . '/lights/christmaslights.js');
+//        echo $this->InlineScript()
+//                ->appendScript('
+//                        var urlBase = "' . $this->baseUrl() . '/lights/";
+//                        soundManager.url = "' . $this->baseUrl() . '/lights/";
+//                        ')
                 ->appendFile('http://www.tutiempo.net/widget/eltiempo_vCjgrBdBdEh9dBsAKASEsEb1nWuALE1lrdEtEsCIK1D');
         ?>
     </body>

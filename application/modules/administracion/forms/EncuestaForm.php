@@ -1,6 +1,6 @@
 <?php
 
-class Administracion_Form_EncuestaForm extends Zend_Form
+class Administracion_Form_EncuestaForm extends Twitter_Bootstrap_Form_Horizontal
 {
 
     public function init()

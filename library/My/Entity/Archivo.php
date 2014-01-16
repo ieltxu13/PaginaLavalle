@@ -6,7 +6,7 @@ namespace My\Entity;
  * @Entity
  * @InheritanceType("SINGLE_TABLE")
  * @DiscriminatorColumn(name="tipo", type="string")
- * @DiscriminatorMap({"imagen" = "Imagen", "video" = "Video"})
+ * @DiscriminatorMap({"imagen" = "Imagen", "video" = "Video", "vendimia"="ImagenVendimia"})
  */
 
 class Archivo
@@ -53,6 +53,8 @@ class Archivo
      * @JoinTable(name="imagenes_subsecciones")
      **/
     protected $subSecciones;
+    
+    
     
     public function __construct()
     {

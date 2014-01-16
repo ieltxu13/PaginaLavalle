@@ -1,11 +1,21 @@
 <div class="container-fluid"><!-- CONTENEDOR DE FILAS -->
+
     <div id="myCarousel" class="carousel slide"> <!--IMAGENES-->
         <div class="carousel-inner">
+            <div class="item active">
+                        <a href="<?php echo $this->url(array(),'vendimia','true')?>">
+                            <img src="<?php echo $this->baseUrl() . '/img/afiche800x350.jpg' ?>">
+                            <div class="carousel-caption imagenes-texto">
+                                <h1>Vendimia 2014, Entrá y seguí todas las actividades!</h1>
+                            </div>
+                        </a>
+                    </div>
             <?php foreach ($this->noticiasCarrousel as $index => $noticiaCarrousel) : ?>
                 <?php if ($index == 0): ?>
-                    <div class="item active">
-                        <a href="<?php echo $this->url(array('id' => $noticiaCarrousel->getId()),'noticia',true) ?>">
-                            <img src="<?php echo $this->url(array('action' => $noticiaCarrousel->getArchivoGrande()->getUrl()),'recurso-noticia',true) ?>" alt="" class="imagenes-carousel">
+                    <!--<div class="item active">-->
+                    <div class="item">
+                        <a href="<?php echo $this->url(array('id' => $noticiaCarrousel->getId()), 'noticia', true) ?>">
+                            <img src="<?php echo $this->url(array('action' => $noticiaCarrousel->getArchivoGrande()->getUrl()), 'recurso-noticia', true) ?>" alt="" class="imagenes-carousel">
                             <div class="carousel-caption imagenes-texto">
                                 <h1><?php echo $noticiaCarrousel->getCopete() ?></h1>
                             </div>
@@ -13,8 +23,8 @@
                     </div>  
                 <?php else : ?>
                     <div class="item">
-                        <a href="<?php echo $this->url(array('id' => $noticiaCarrousel->getId()),'noticia',true) ?>">
-                            <img src="<?php echo $this->url(array('action' => $noticiaCarrousel->getArchivoGrande()->getUrl()),'recurso-noticia',true) ?>" alt="" class="imagenes-carousel">
+                        <a href="<?php echo $this->url(array('id' => $noticiaCarrousel->getId()), 'noticia', true) ?>">
+                            <img src="<?php echo $this->url(array('action' => $noticiaCarrousel->getArchivoGrande()->getUrl()), 'recurso-noticia', true) ?>" alt="" class="imagenes-carousel">
                             <div class="carousel-caption imagenes-texto">
                                 <h1><?php echo $noticiaCarrousel->getCopete() ?></h1>
                             </div>
@@ -32,7 +42,7 @@
         <div class="span6"><!-- FILA VIDEOS -->
             <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab_3.png' ?>"/><!-- DIVISOR -->
             <h2>Videos</h2>
-            <div id="videoCarousel" class="carousel slide" data-interval="">
+            <div id="videoCarousel" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="item active">
                         <iframe width="100%" height="300" src="http://www.youtube.com/embed/N0oODdbeXc8?rel=0" frameborder="0" allowfullscreen="" id="video"></iframe>
@@ -61,6 +71,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="item">
+                        <iframe width="100%" height="300" src="//www.youtube.com/embed/CdZG9tROODc" frameborder="0" allowfullscreen></iframe>
+                        <div class="container">
+                            <div class="carousel-caption videos">
+                                <h1>Discurso Roberto Righi 27/12</h1>
+                                <p class="lead">Vecinos de Lavalle rechazaron el escrache de municipales y ATE</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <a class="left carousel-control" href="#videoCarousel" data-slide="prev">&lsaquo;</a>
                 <a class="right carousel-control" href="#videoCarousel" data-slide="next">&rsaquo;</a>
@@ -73,7 +92,7 @@
                 <div class="aficheVentanillaOculto">
                     <div class="aficheVentanillaOculto">
                         <a href="<?php
-                        echo $this->url(array('id' => 14),'subseccion',true);
+                        echo $this->url(array(), 'tramites', true);
                         ?>"><img src="<?php echo $this->baseUrl() . '/img/tramites.png' ?>" style="display: block; margin: 50 auto;"></a>
                     </div>
                 </div>
@@ -92,40 +111,41 @@
                 <img src='<?php echo $this->baseUrl() . '/img/colectivos.png' ?>'>Horarios ruta 24</a>
         </div><!-- FILA ALGO MAS -->
     </div><!--FIN VIDEOS Y ALGO MAS-->
-<?php if (isset($this->encuestaActiva)): ?>
-    <?php if (!isset($_COOKIE[$this->encuestaActiva])): ?>
-    <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab.png' ?>"/><!-- DIVISOR -->
-    <div class='row-fluid widgetEncuesta' style="height:238px"><!--ENCUESTA-->
+    <?php if (isset($this->encuestaActiva)): ?>
+        <?php if (!isset($_COOKIE[$this->encuestaActiva])): ?>
+            <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab.png' ?>"/><!-- DIVISOR -->
+            <div class='row-fluid widgetEncuesta' style="height:238px"><!--ENCUESTA-->
                 <div class="pregunta span12">
                     <div class="row-fluid">
-                    <h1><?php echo $this->encuesta->getPregunta() ?></h1>
-                    <div class="span4">
-                    <a id="encuestaSi" encuesta="<?php echo $this->encuesta->getId() ?>" class="btn btn-success btn-large btn-block">Si</a> 
+                        <h1><?php echo $this->encuesta->getPregunta() ?></h1>
+                        <div class="span4">
+                            <a id="encuestaSi" encuesta="<?php echo $this->encuesta->getId() ?>" class="btn btn-success btn-large btn-block">Si</a> 
+                        </div>
+                        <div class="span4">
+                            <a id="encuestaNo" encuesta="<?php echo $this->encuesta->getId() ?>" class="btn btn-danger btn-large btn-block">No</a>
+                        </div>
                     </div>
-                    <div class="span4">
-                    <a id="encuestaNo" encuesta="<?php echo $this->encuesta->getId() ?>" class="btn btn-danger btn-large btn-block">No</a>
-                    </div>
-                    </div>
-                    
+
                     <br>
-                    
+
                 </div>
                 <div class="resultados">
                 </div>
-    </div><!--FIN ENCUESTA-->
-    <?php endif;
-endif; ?>
+            </div><!--FIN ENCUESTA-->
+        <?php endif;
+    endif;
+    ?>
     <img class="tab" src="<?php echo $this->baseUrl() . '/img/tab.png' ?>"/><!-- DIVISOR -->
     <h2>Noticias</h2>
     <div class='row-fluid'><!--NOTICIAS FILA 1-->
-<?php foreach ($this->noticiasPrincipales as $index => $noticiap): ?>
-                        <?php if ($index == 0 || $index == 3) : ?>
+        <?php foreach ($this->noticiasPrincipales as $index => $noticiap): ?>
+    <?php if ($index == 0 || $index == 3) : ?>
                 <div class="row-fluid">    
                     <div class="span4 noticiasPrincipales">
                         <a href="<?php echo $this->url(array('id' => $noticiap->getId()), 'noticia', true) ?>">
                             <?php if ($noticiap->getArchivoPrincipal()) : ?>
                                 <img height="300" width="300" src="<?php
-                                     echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',null)
+                                     echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()), 'recurso-noticia', null)
                                      ?>">
         <?php endif; ?>
                             <h5><?php echo $noticiap->getTitulo() ?></h5>
@@ -133,12 +153,12 @@ endif; ?>
 
                         </a>
                     </div>
-                        <?php elseif ($index == 2 || $index == 5) : ?>   
+    <?php elseif ($index == 2 || $index == 5) : ?>   
                     <div class="span4 noticiasPrincipales">
                         <a href="<?php echo $this->url(array('id' => $noticiap->getId()), 'noticia', true) ?>">
                             <?php if ($noticiap->getArchivoPrincipal()) : ?>
                                 <img height="300" width="300" src="<?php
-                                     echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',null)
+                                     echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()), 'recurso-noticia', null)
                                      ?>">
         <?php endif; ?>
                             <h5><?php echo $noticiap->getTitulo() ?></h5>
@@ -147,13 +167,13 @@ endif; ?>
                         </a>
                     </div>
                 </div>
-                    <?php else: ?>
+    <?php else: ?>
                 <div class="span4 noticiasPrincipales">
                     <a href="<?php echo $this->url(array('id' => $noticiap->getId()), 'noticia', true) ?>">
 
                         <?php if ($noticiap->getArchivoPrincipal()) : ?>
                             <img height="300" width="300" src="<?php
-                                 echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()),'recurso-noticia',null)
+                                 echo $this->url(array('action' => $noticiap->getArchivoPrincipal()->getUrl()), 'recurso-noticia', null)
                                  ?>">
         <?php endif; ?>
                         <h5><?php echo $noticiap->getTitulo() ?></h5>
@@ -161,7 +181,7 @@ endif; ?>
 
                     </a>
                 </div>
-    <?php endif; ?>
+            <?php endif; ?>
 <?php endforeach; ?>
 
     </div><!--FIN NOTICIAS FILA 1-->
@@ -174,6 +194,9 @@ endif; ?>
 <!--<script>
                    $('.nav').children().first().addClass('active');
                    $('#myCarousel').carousel({
+                       interval: 5000
+                   });
+                   $('#videoCarousel').carousel({
                        interval: 5000
                    });
 </script>-->

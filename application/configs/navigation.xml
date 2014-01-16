@@ -65,6 +65,14 @@
                     <resource>administracion:revista-crecemos</resource>
                     <privilege>index</privilege>
                 </revistaCrecemos>
+                <vendimia>
+                    <label>Vendimia</label>
+                    <module>administracion</module>
+                    <controller>vendimia</controller>
+                    <action>index</action>
+                    <resource>administracion:vendimia</resource>
+                    <privilege>index</privilege>
+                </vendimia>
             </pages>
         </administracion>
         <noticias>
@@ -166,6 +174,14 @@
                     <resource>administracion:imagenes</resource>
                     <privilege>galeria</privilege>
                 </galeria>
+                <galeria-vendimia>
+                    <label>Galeria Vendimial</label>
+                    <module>administracion</module>
+                    <controller>imagenes</controller>
+                    <action>galeria-vendimia</action>
+                    <resource>administracion:imagenes</resource>
+                    <privilege>galeria-vendimia</privilege>
+                </galeria-vendimia>
             </pages>
         </secciones>
         <usuarios>

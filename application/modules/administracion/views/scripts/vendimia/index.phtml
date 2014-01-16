@@ -1,0 +1,40 @@
+<br /><br />
+
+<?php if (count($this->messages)) : ?>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <ul id="messages">
+            <?php foreach ($this->messages as $message) : ?>
+                <li><?php echo $this->escape($message); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
+<br>
+<a href="<?php echo $this->url(array('module' => 'administracion', 'controller' => 'vendimia', 'action' => 'nueva'),null, true)?>"
+   class='btn btn-primary'>Nueva Candidata</a>
+   <?php foreach ($this->candidatas as $candidata) : ?>
+<div class="media">
+  <a class="pull-left" href="#">
+      <?php if ($candidata->getImagenPrincipal() != null) : ?>
+      <img class="media-object" src="<?php echo $this->baseUrl() . '/img/candidatas/'.$candidata->getImagenPrincipal()?>">
+          <?php else: ?>
+      <img class="media-object" data-src="holder.js/64x64">
+      <?php endif?>
+    
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading"><?php echo $candidata->getNombre()?></h4>
+    <p>Edad: <?php echo $candidata->getEdad()?></p>       
+    <p>Ojos: <?php echo $candidata->getOjos()?></p>
+    <p>Cabello: <?php echo $candidata->getCabello()?></p>
+    <p>Estudios: <?php echo $candidata->getEstudios() ?> </p>
+    <p>Hobby: <?php echo $candidata->getHobby() ?></p>
+    <a href='<?php echo $this->url(array('module'=>'administracion','controller'=>'vendimia','action'=>'editar','id'=>$candidata->getId()))?>'
+                   class='btn btn-primary' data-toggle="tooltip" title="Editar"><i class='icon-pencil'></i>Editar</a>
+            <a href='<?php echo $this->url(array('module'=>'administracion','controller'=>'vendimia','action'=>'imagen','id'=>$candidata->getId()))?>'
+                   class='btn btn-primary' data-toggle="tooltip" title="Elegir imágen"><i class='icon-screenshot'></i>Elegir/Cambiar Imágen</a>
+  </div>
+</div>
+<?php endforeach; ?>

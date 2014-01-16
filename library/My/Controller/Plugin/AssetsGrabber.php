@@ -7,7 +7,7 @@ class My_Controller_Plugin_AssetsGrabber extends Zend_Controller_Plugin_Abstract
     {
 
         if ($request->getControllerName() != 'recursosn' && $request->getControllerName() != 'recursosg'
-                && $request->getControllerName() != 'recursoss')
+                && $request->getControllerName() != 'recursoss' && $request->getControllerName() != 'recursosv')
             return;
 
         switch ($request->getControllerName()) {
@@ -27,6 +27,12 @@ class My_Controller_Plugin_AssetsGrabber extends Zend_Controller_Plugin_Abstract
                 $action = $request->getActionName();
                 Header("Content-Type: image; charset=UTF-8");
                 echo file_get_contents(APPLICATION_PATH . '/recursos/acuerdo3949/' . str_replace('+', ' ', $action));
+                break;
+            
+            case 'recursosv':
+                $action = $request->getActionName();
+                Header("Content-Type: image; charset=UTF-8");
+                echo file_get_contents(APPLICATION_PATH . '/recursos/vendimia/' . str_replace('+', ' ', $action));
                 break;
             
             case 'recursosg':

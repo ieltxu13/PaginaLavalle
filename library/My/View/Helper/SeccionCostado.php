@@ -41,7 +41,7 @@ class My_View_Helper_SeccionCostado extends Zend_View_Helper_Abstract {
                         $menues .= '       <li><a href="' . strip_tags($subseccion->getContenido()) . '">' . $subseccion->getNombre() . '</a></li>';
                     } else {
                         //$menues .= '       <li><a href="/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
-                        $menues .= '       <li><a href="'.$this->view->url(array('id'=> $subseccion->getId()),'subseccion',true)  . '">' . $subseccion->getNombre() . '</a></li>';
+                        $menues .= '       <li><a href="'.$this->view->url(array(),$subseccion->getAlias(),true)  . '">' . $subseccion->getNombre() . '</a></li>';
                     }
                 }
                 $menues .='    </ul>';
@@ -78,7 +78,7 @@ class My_View_Helper_SeccionCostado extends Zend_View_Helper_Abstract {
                     //***
                     foreach ($seccionesEnSession->seccionesDer[$index]->getSubSecciones() as $subseccion) {
                         //$menues .= '       <li><a href="/PaginaLavalle/public/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
-                        $menues .= '       <li><a href="/secciones/ver/id/' . $subseccion->getId() . '">' . $subseccion->getNombre() . '</a></li>';
+                        $menues .= '       <li><a href="'.$this->view->url(array(),$subseccion->getAlias(),true)  . '">' . $subseccion->getNombre() . '</a></li>';
                     }
                 }
                 $menues .='    </ul>';

@@ -5,7 +5,6 @@ namespace My\Entity;
 /**
  * @Entity
  */
-
 class RevistaCrecemos
 {
     
