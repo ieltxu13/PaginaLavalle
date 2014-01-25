@@ -132,6 +132,12 @@ class Default_SeccionesController extends Zend_Controller_Action
         
         $this->view->candidatas = $candidatas;
         
+        $query = $this->_em->createQuery('SELECT i from My\Entity\ImagenVendimia i where i.enGaleria = ?1');
+        $query->setParameter(1, true);
+
+        $imagenes = $query->getResult();
+        $this->view->imagenes = $imagenes;
+        
         if ($this->_request->isXmlHttpRequest()) {
 
             $this->_helper->layout()->disableLayout();

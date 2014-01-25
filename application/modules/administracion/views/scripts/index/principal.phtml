@@ -1,7 +1,20 @@
 <div class="hero-unit">
     <h1>Panel de Administración Página de Lavalle</h1>
 </div>
-
-<div class="well-large">
-    <h1>Novedades:</h1>
+<?php if($this->noLeidos > 0) : ?>
+<div class="alert alert-error">
+  <?php echo count($this->noLeidos)?> Mensajes <strong>NO</strong> Leidos.
 </div>
+<?php endif; ?>
+<div class="well-large">
+    <h1>Novedades:</h1>-
+</div>
+
+<ul>
+    <li>
+        25/01/2014 - Los mails ahora generan automáticamente una respuesta a quién los envió-.
+    </li>
+    <li>
+        25/01/2014 - En esta pantalla se mostrará un mensaje cuándo existan mensajes sin leer.
+    </li>
+</ul>

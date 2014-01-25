@@ -56,8 +56,32 @@ $this->headMeta()->setName('og:title', 'Vendimia Lavalle 2014. Romántica Cosech
     </div>
 
     <?php if ($this->candidatas) : ?>
-        <div class="efectoVendimia" style="color: black"><a href="#Candidatas" role="button" data-toggle="modal">Hacé click AQUÍ para ver las candidatas 2014 y VOTAR</a></div>
+        <div class="efectoVendimia"><a href="#Candidatas" role="button" data-toggle="modal">Haz Click aquí para ver las candidatas a Reina Departamental 2014!</a></div>
+        <hr>
+        <h1>Imágenes</h1>
     <?php endif; ?>
+    <?php if ($this->imagenes) : ?>
+        <div id="links">
+            <?php foreach ($this->imagenes as $imagen) : ?>
+                <a href="<?php echo $this->url(array('action' =>$imagen->getUrl()), 'recurso-vendimia', true) ?>" title="<?php echo $imagen->getDescripcion() ?>">
+                    <img src="<?php echo $this->url(array('action' => $imagen->getUrl()), 'recurso-vendimia-thumbnail', true) ?>">
+                </a>
+            <?php endforeach; ?>
+        </div>
+        <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+        <div id="blueimp-gallery" class="blueimp-gallery">
+            <div class="slides"></div>
+            <h3 class="title"></h3>
+            <a class="prev">‹</a>
+            <a class="next">›</a>
+            <a class="close">×</a>
+            <a class="play-pause"></a>
+            <ol class="indicator"></ol>
+        </div>        
+
+    <?php endif; ?>
+
+
     <!-- AGENDA VENDIMIAL -->
     <div class="row-fluid">
         <div class="span12">
@@ -235,12 +259,12 @@ $this->headMeta()->setName('og:title', 'Vendimia Lavalle 2014. Romántica Cosech
                                         <br>
                                         <p>Hobby: <?php echo $candidata->getHobby() ?></p>
                                         <br><br><br>
-                                        <p>Votos: <span id='votos<?php echo $candidata->getId()?>' class="badge badge-success"><?php echo $candidata->getVotos()?></span>
-                                            <?php if (!isset($_COOKIE['votoVendimia'.$candidata->getId()])): ?>
+                                        <p>Votos: <span id='votos<?php echo $candidata->getId() ?>' class="badge badge-success"><?php echo $candidata->getVotos() ?></span>
+                                            <?php if (!isset($_COOKIE['votoVendimia' . $candidata->getId()])): ?>
                                                 <a class='votoVendimia btn btn-success' candidata="<?php echo $candidata->getId() ?>">+1</a> 
                                                 <?php
-                                        endif;
-                                        ?>
+                                            endif;
+                                            ?>
                                         </p>
                                     </div>
                                 </div>
@@ -272,12 +296,12 @@ $this->headMeta()->setName('og:title', 'Vendimia Lavalle 2014. Romántica Cosech
                                         <br>
                                         <p>Hobby: <?php echo $candidata->getHobby() ?></p>
                                         <br><br><br>
-                                        <p>Votos: <span id='votos<?php echo $candidata->getId()?>' class="badge badge-success"><?php echo $candidata->getVotos()?></span>
-                                            <?php if (!isset($_COOKIE['votoVendimia'.$candidata->getId()])): ?>
+                                        <p>Votos: <span id='votos<?php echo $candidata->getId() ?>' class="badge badge-success"><?php echo $candidata->getVotos() ?></span>
+                                            <?php if (!isset($_COOKIE['votoVendimia' . $candidata->getId()])): ?>
                                                 <a class='votoVendimia btn btn-success' candidata="<?php echo $candidata->getId() ?>">+1</a> 
                                                 <?php
-                                        endif;
-                                        ?>
+                                            endif;
+                                            ?>
                                         </p>
                                     </div>
                                 </div>

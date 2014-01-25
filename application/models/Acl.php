@@ -72,8 +72,7 @@ class Application_Model_Acl extends Zend_Acl
              ->allow('prensa','administracion:revista-crecemos',array('index','subir-documentos'))
              ->allow('prensa','administracion:vendimia',array('index','nueva','imagen','editar'))
              ->deny('prensa', 'administracion:index','index');
-             
-        
+                 
         $this->allow('administrador','administracion:secciones',array('index','nuevaseccion',
             'nuevasubseccion','listasecciones','listasubsecciones','editarsubseccion','dropdown',
             'ver','imagenes','seleccionarimagen','seleccionar','quitarimagen','editarseccion'))

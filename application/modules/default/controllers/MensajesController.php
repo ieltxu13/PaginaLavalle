@@ -52,6 +52,13 @@ class Default_MensajesController extends Zend_Controller_Action
                 $this->_em->persist($mensaje);
                 $this->_em->flush();
                 
+                $mail = new My_HtmlMailer();
+                $mail->setSubject('Gracias Por Comunicarte Con Nosotros')
+                        ->addTo($mensaje->getEmail(),$mensaje->getDe())
+                        ->addTo('ieltxu.alganaras@gmail.com.ar','Ieltxu Algañarás');
+                
+                $mail->sendHtmlTemplate('respuesta.phtml');
+                
                 $this->view->enviado = true;
             }
         }

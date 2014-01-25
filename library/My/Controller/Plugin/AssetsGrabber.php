@@ -7,7 +7,8 @@ class My_Controller_Plugin_AssetsGrabber extends Zend_Controller_Plugin_Abstract
     {
 
         if ($request->getControllerName() != 'recursosn' && $request->getControllerName() != 'recursosg'
-                && $request->getControllerName() != 'recursoss' && $request->getControllerName() != 'recursosv')
+                && $request->getControllerName() != 'recursoss' && $request->getControllerName() != 'recursosv'
+                && $request->getControllerName() != 'recursosvt')
             return;
 
         switch ($request->getControllerName()) {
@@ -33,6 +34,12 @@ class My_Controller_Plugin_AssetsGrabber extends Zend_Controller_Plugin_Abstract
                 $action = $request->getActionName();
                 Header("Content-Type: image; charset=UTF-8");
                 echo file_get_contents(APPLICATION_PATH . '/recursos/vendimia/' . str_replace('+', ' ', $action));
+                break;
+            
+            case 'recursosvt':
+                $action = $request->getActionName();
+                Header("Content-Type: image; charset=UTF-8");
+                echo file_get_contents(APPLICATION_PATH . '/recursos/vendimia/thumbnails/' . str_replace('+', ' ', $action));
                 break;
             
             case 'recursosg':

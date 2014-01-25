@@ -104,6 +104,9 @@
         <recurso-vendimia route="/imagen-vendimia/:action">
             <defaults module="default" controller="recursosv"></defaults>
         </recurso-vendimia>
+        <recurso-vendimia-thumbnail route="/imagen-vendimia-thumbnail/:action">
+            <defaults module="default" controller="recursosvt"></defaults>
+        </recurso-vendimia-thumbnail>
         <vendimia route="/vendimia">
             <defaults module="default" controller="secciones" action="vendimia"></defaults>
         </vendimia>

@@ -99,7 +99,12 @@ class Administracion_IndexController extends Zend_Controller_Action
 
     public function principalAction()
     {
+        $query = $this->_em->createQuery('Select m From My\Entity\Mensaje m where m.leido = ?1');
+        $query->setParameter(1, false);
+        $noLeidos = $query->getScalarResult();
         
+        $this->view->noLeidos = $noLeidos;
+  
     }
 
 

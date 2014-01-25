@@ -12,7 +12,8 @@
                 ->prependStylesheet($this->baseUrl() . $a . '/css/bootstrap-responsive.min.css')
                 //->prependStylesheet($this->baseUrl() . $a.'/css/responsive.css')
                 ->prependStylesheet($this->baseUrl() . $a . '/css/cubo/cubo.css')
-                ->prependStylesheet($this->baseUrl() . $a . '/css/bootstrap.min.css');
+                ->prependStylesheet($this->baseUrl() . $a . '/css/bootstrap.min.css')
+                ->prependStylesheet($this->baseUrl() . $a . '/Gallery-master/css/blueimp-gallery.min.css');
         echo $this->headLink()
                 ->headLink(array('rel' => 'icon',
                     'href' => $this->baseUrl() . '/img/Logo-16x16.png'), 'PREPEND');
@@ -142,9 +143,10 @@
             </div>
         </div>
         <?php
-        echo $this->MinifyHeadScript()
-                ->appendFile($this->baseUrl() . $a . '/js/jchart/Chart.min.js')
+            echo $this->MinifyHeadScript()
+                    ->appendFile($this->baseUrl() . $a . '/js/jchart/Chart.min.js')
                 ->appendFile($this->baseUrl() . $a . '/js/jquery/cookie/jquery.cookie.js')
+                ->appendFile($this->baseUrl() . $a . '/Gallery-master/js/blueimp-gallery.min.js')
                 ->appendFile($this->baseUrl() . $a . '/js/frontend.js')
                 ->appendFile($this->baseUrl() . $a . '/js/encuesta.js')
 //                ->appendFile($this->baseUrl() . $a . '/js/yuiloader-min.js')
